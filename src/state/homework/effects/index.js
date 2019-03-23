@@ -3,6 +3,8 @@
 
 // @flow
 
+import {initEffect} from './init'
 
 export const homeworkEffects = [
+  initEffect,
 ]

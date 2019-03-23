@@ -36,7 +36,11 @@
         }
       },
       "channels": {},
-      "effects": {},
+      "effects": {
+        "init": {
+          "name": "init"
+        }
+      },
       "reducers": {}
     }
   }
