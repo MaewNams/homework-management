@@ -3,52 +3,55 @@ import type {Route} from '../router/types'
 
 import * as React from 'react'
 import {connect} from 'react-redux'
-import {RouteNode} from 'react-router5'
+import {createRouteNodeSelector} from 'redux-router5'
 import {startsWithSegment} from 'router5-helpers'
+import {compose, withProps} from 'recompose'
+
 import {Header} from './common_component'
 import {Home} from './home'
-
-
+import {GroupWork} from './group_work'
 
 type Props = {
-  isSessionReady: boolean,
+  view: React.Node,
+  route: any,
 }
 
 export class Root extends React.Component<Props> {
-  renderChild(route: Route): React.Node {
-    const test: Function = startsWithSegment(route.name)
-    if (test('home')) {
-      return <Home />
-    } else {
-      return null
-    }
-  }
-
   render() {
-    const {isSessionReady} = this.props
+    const {view, route} = this.props
+    const test = startsWithSegment(route.name)
+    return [
+      <Header key="header" />,
+      <div className="root-content" key="content" name="root">
+        {view}
+      </div>
+    ]
+  }
+}
 
-    if (true) {
-      return [
-        <Header key="header" />,
-        <RouteNode nodeName=""
-          key="content"
-        >
-          {({route}) => this.renderChild(route)}
-        </RouteNode>,
-      ]
-    } else {
-      // TODO: display loading
-      return null
+const enhance = compose(
+  withProps(props => {
+    if (!props.route) {
+      return {view: null}
     }
-  }
-}
+    const {name} = props.route
+    const test = startsWithSegment(name)
+    if (test('home')) {
+    return {view: <Home /> }
+    } else if (test('group')) {
+      const id = props.route.params.id
+    return {view: <GroupWork id={id} /> }
+    } else {
+      return {view: null}
+    }
+  })
+)
 
-function mapStateToProps(state: ApplicationState): any {
+const withStore = connect(state => {
+  const routeSelector = createRouteNodeSelector('')
   return {
-  //  isSessionReady: sessionSelectors.isReady(state),
+    ...routeSelector(state)
   }
-}
+})
 
-export default connect(
-  mapStateToProps
-)(Root)
+export default withStore(enhance(Root))

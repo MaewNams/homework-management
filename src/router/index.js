@@ -20,7 +20,8 @@ const createRoute = (name, path, children) => ({
 
 const routes = [
   createRoute('init', '/init'),
-  createRoute('home', '/home')
+  createRoute('home', '/home'),
+  createRoute('group', '/group/:id')
 ]
 
 const options = {
