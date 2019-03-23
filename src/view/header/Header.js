@@ -21,8 +21,8 @@ export class Header extends PureComponent<Props> {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </NavButton>
-          <a className="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
+          <a className="navbar-item">
+            SQUARE BOX
           </a>
         </div>
     </nav>
