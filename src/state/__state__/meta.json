@@ -31,7 +31,8 @@
         "setHomeworkList": {
           "name": "setHomeworkList",
           "flowType": "SetHomeworkList",
-          "id": "homework/SET_HOMEWORK_LIST"
+          "id": "homework/SET_HOMEWORK_LIST",
+          "reducer": true
         }
       },
       "channels": {},
