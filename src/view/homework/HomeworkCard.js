@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 
 const CardContainer = styled.div`
-  padding: 1rem;
+  padding-bottom: 1rem;
 `
 
 type Props = {
