@@ -5,7 +5,7 @@ import * as React from 'react'
 import {connect} from 'react-redux'
 import {RouteNode} from 'react-router5'
 import {startsWithSegment} from 'router5-helpers'
-import {Header} from './header'
+import {Header} from './common_component'
 import {Home} from './home'
 
 

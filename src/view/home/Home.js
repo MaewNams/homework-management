@@ -14,7 +14,7 @@ import {
   HomeworkList,
   HomeworkStatistic,
 } from '../homework'
-import {GroupWorkPanel} from '../group'
+import {GroupWorkPanel} from '../common_component'
 
 const Container = styled.div`
   padding: 1rem;
