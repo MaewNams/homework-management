@@ -7,6 +7,12 @@ export type Homework = {
   status: string,
 }
 
+export type WorkGroup = {
+  id: string,
+  name: string,
+  workLeft: number,
+}
+
 export type HomeworkState = {
   homeworkList: ?Homework[]
 }
