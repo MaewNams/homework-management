@@ -1,6 +1,6 @@
 // @flow
 
-export type HomeWork = {
+export type Homework = {
   subject: string,
   detail: string,
   date: string,
@@ -8,5 +8,5 @@ export type HomeWork = {
 }
 
 export type HomeworkState = {
-  homeworkList: Array<HomeWork>
+  homeworkList: Array<Homework>
 }
