@@ -7,7 +7,10 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 
 import {homeworkSelectors} from '../../state/homework/selectors'
-import {HomeworkList} from '../homework'
+import {
+  HomeworkList,
+  HomeworkStatistic,
+} from '../homework'
 
 const Container = styled.div`
   padding: 1rem;
@@ -72,6 +75,7 @@ export class Home extends PureComponent<Props> {
           </nav>
         </div>
         <div className="media-content">
+          <HomeworkStatistic />
           <div className="content">
           { homeworkList && (
             <HomeworkList homeWorkList={homeworkList} />
