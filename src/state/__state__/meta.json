@@ -41,7 +41,12 @@
           "name": "init"
         }
       },
-      "reducers": {}
+      "reducers": {},
+      "selectors": {
+        "getHomeworkList": {
+          "name": "getHomeworkList"
+        }
+      }
     }
   }
 }
