@@ -6,8 +6,6 @@ import createSagaMiddleware from 'redux-saga'
 import {router5Middleware as createRouterMiddleware, router5Reducer} from 'redux-router5'
 import {router} from '../router'
 import {initialState} from './initialState'
-import {bookReducer} from './book/reducers'
-import {bookEffects} from './book/effects'
 import {homeworkReducer} from './homework/reducers'
 import {homeworkEffects} from './homework/effects'
 
@@ -19,7 +17,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
   combineReducers({
     router: router5Reducer,
-    book: bookReducer,
     homework: homeworkReducer,
   }),
   initialState,
@@ -28,7 +25,6 @@ const store = createStore(
   ))
 )
 
-bookEffects.forEach(fx => sagaMiddleware.run(fx))
 homeworkEffects.forEach(fx => sagaMiddleware.run(fx))
 
 export {
