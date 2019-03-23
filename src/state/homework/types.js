@@ -8,5 +8,5 @@ export type Homework = {
 }
 
 export type HomeworkState = {
-  homeworkList: Array<Homework>
+  homeworkList: ?Homework[]
 }

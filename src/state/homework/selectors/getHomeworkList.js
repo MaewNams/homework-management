@@ -1,13 +1,16 @@
 // @flow
 
 import type {ApplicationState} from '../../types'
-import type {Homework} from '../types'
+import type {
+  Homework,
+  HomeworkState,
+} from '../types'
 
 export function getHomeworkList(appState: ApplicationState): ?Homework[] {
   return _getHomeworkList(appState.homework)
 }
 
-function _getHomeworkList(state: HomeworkState): ?Homework {
+function _getHomeworkList(state: HomeworkState): ?Homework[] {
   return state.homeworkList
 }
 
