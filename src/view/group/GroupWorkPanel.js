@@ -7,12 +7,13 @@ import styled from 'styled-components'
 const CardContainer = styled.div`
   padding-bottom: 1rem;
 `
-const BottomMenu = styled.div`
+const GroupContainer = styled.a`
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-column-gap: 1rem;
-  justify-content: center;
-  padding-bottom: 1rem;
+  grid-template-columns: 80% 20%;
+  align-items: flex-start;
+`
+const Span = styled.span`
+  padding-left: 0.5rem;
 `
 type Props = {
   workGroupList: ?WorkGroup[]
@@ -25,19 +26,17 @@ class GroupWorkPanel extends PureComponent<Props> {
       <nav className="panel">
         <a className="panel-block is-active">
           <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true"></i>
+            <i className="fa fa-book" aria-hidden="true"></i>
           </span>
-          bulma
+          กลุ่มงาน
         </a>
         { workGroupList && (
           workGroupList.map((group, i) => {
             return (
-              <a key={i} className="panel-block">
-                <span className="panel-icon">
-                  <i className="fas fa-book" aria-hidden="true"></i>
-                </span>
-                {group.name}: ({group.workLeft})
-            </a>
+              <GroupContainer key={i} className="panel-block">
+              {group.name}
+              <Span class="tag is-danger">({group.workLeft})</Span>
+            </GroupContainer>
             )
           })
         )}
