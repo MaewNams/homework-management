@@ -24,12 +24,12 @@ class GroupWorkPanel extends PureComponent<Props> {
     const {workGroupList} = this.props
     return (
       <nav className="panel">
-        <a className="panel-block is-active">
+        <div className="panel-block">
           <span className="panel-icon">
             <i className="fa fa-book" aria-hidden="true"></i>
           </span>
           กลุ่มงาน
-        </a>
+        </div>
         { workGroupList && (
           workGroupList.map((group, i) => {
             return (
