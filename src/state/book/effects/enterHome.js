@@ -11,7 +11,7 @@ import {
 import {actionTypes as routerTypes} from 'redux-router5'
 
 import {bookActions} from '../actions'
-import {fetchQuoteList} from '../lib/fetchQuoteList'
+import {fetchQuoteList} from '../../../book/fetchQuoteList'
 
 
 export function* enterHomeEffect(): Effect {

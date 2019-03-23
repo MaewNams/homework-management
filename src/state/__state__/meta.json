@@ -1,0 +1,28 @@
+{
+  "states": {
+    "book": {
+      "name": "book",
+      "flowType": "BookState",
+      "actions": {
+        "setQuoteList": {
+          "name": "setQuoteList",
+          "flowType": "SetQuoteList",
+          "id": "book/SET_QUOTE_LIST",
+          "reducer": true
+        }
+      },
+      "channels": {},
+      "effects": {
+        "enterHome": {
+          "name": "enterHome"
+        }
+      },
+      "reducers": {},
+      "selectors": {
+        "getQuoteList": {
+          "name": "getQuoteList"
+        }
+      }
+    }
+  }
+}
