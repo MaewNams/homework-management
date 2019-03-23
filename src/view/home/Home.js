@@ -14,7 +14,7 @@ import {
   HomeworkList,
   HomeworkStatistic,
 } from '../homework'
-import {GroupNavbar} from '../group'
+import {GroupWorkPanel} from '../group'
 
 const Container = styled.div`
   padding: 1rem;
@@ -31,7 +31,7 @@ export class Home extends PureComponent<Props> {
      <Container className="container is-fluid">
       <div className="media">
         <div className="media-left">
-          <GroupNavbar workGroupList={workGroupList} />
+          <GroupWorkPanel workGroupList={workGroupList} />
         </div>
         <div className="media-content">
           <HomeworkStatistic />

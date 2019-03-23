@@ -1,5 +1,5 @@
 // @flow
-import type {Homework} from '../../state/homework/types'
+import type {WorkGroup} from '../../state/homework/types'
 
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
@@ -15,11 +15,12 @@ const BottomMenu = styled.div`
   padding-bottom: 1rem;
 `
 type Props = {
+  workGroupList: ?WorkGroup[]
 }
 
-class GroupNavbar extends PureComponent<Props> {
+class GroupWorkPanel extends PureComponent<Props> {
   render() {
-    const {} = this.props
+    const {workGroupList} = this.props
     return (
       <nav className="panel">
         <a className="panel-block is-active">
@@ -28,22 +29,19 @@ class GroupNavbar extends PureComponent<Props> {
           </span>
           bulma
         </a>
-        <a className="panel-block">
-          <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true"></i>
-          </span>
-          marksheet
-        </a>
-        <a className="panel-block">
-          <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true"></i>
-          </span>
-          minireset.css
-        </a>
-        <label className="panel-block">
-          <input type="checkbox" />
-          remember me
-        </label>
+        { workGroupList && (
+          workGroupList.map((group, i) => {
+            return (
+              <a key={i} className="panel-block">
+                <span className="panel-icon">
+                  <i className="fas fa-book" aria-hidden="true"></i>
+                </span>
+                {group.name}: ({group.workLeft})
+            </a>
+            )
+          })
+        )}
+
         <div className="panel-block">
           <button className="button is-link is-outlined is-fullwidth">
             reset all filters
@@ -54,4 +52,4 @@ class GroupNavbar extends PureComponent<Props> {
   }
 }
 
-export default GroupNavbar
+export default GroupWorkPanel

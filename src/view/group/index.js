@@ -1,1 +1,1 @@
-export {default as GroupNavbar} from './GroupNavbar'
+export {default as GroupWorkPanel} from './GroupWorkPanel'
