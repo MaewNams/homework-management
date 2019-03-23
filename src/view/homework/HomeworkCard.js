@@ -7,7 +7,13 @@ import styled from 'styled-components'
 const CardContainer = styled.div`
   padding-bottom: 1rem;
 `
-
+const BottomMenu = styled.div`
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-column-gap: 1rem;
+  justify-content: center;
+  padding-bottom: 1rem;
+`
 type Props = {
   homework: Homework
 }
@@ -20,21 +26,23 @@ class HomeworkCard extends PureComponent<Props> {
         <div className="card">
           <header class="card-header">
             <p class="card-header-title">
-              {homework.subject}
+              เหลือเวลาอีก 2 วัน
             </p>
-            <a href="#" class="card-header-icon" aria-label="more options">
-              <span class="icon">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </a>
           </header>
           <div className="card-content">
             <div className="content">
-              {homework.detail}
+              วิชา: {homework.subject}
               <br />
-              <time datetime="2016-1-1">{homework.date}</time>
+              รายละเอียด: {homework.detail}
+              <br />
+              กำหนดส่ง: <time datetime="2016-1-1">{homework.date}</time>
             </div>
           </div>
+          <BottomMenu>
+            <a className="button is-primary">Done</a>
+            <a className="button is-info">Edit</a>
+            <a className="button is-danger">Delete</a>
+          </BottomMenu>
         </div>
       </CardContainer>
     )
