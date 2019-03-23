@@ -1,16 +1,17 @@
 // @flow
 import type {Action} from '../../../state/types'
+import type {Homework} from '../types'
 
 export type SetHomeworkListPayload = {
-  // TODO: Add payload content
+  homeworkList = Homework[]
 }
 
 const id = 'homework/SET_HOMEWORK_LIST'
 
-export const setHomeworkList = (): Action<SetHomeworkListPayload> => ({
+export const setHomeworkList = (homeworkList: Homework[]): Action<SetHomeworkListPayload> => ({
   type: id,
   payload: {
-    // TODO: Add payload content
+    homework
   }
 })
 
