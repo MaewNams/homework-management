@@ -14,5 +14,6 @@ export type WorkGroup = {
 }
 
 export type HomeworkState = {
-  homeworkList: ?Homework[]
+  homeworkList: ?Homework[],
+  workGroupList: ? WorkGroup[]
 }
