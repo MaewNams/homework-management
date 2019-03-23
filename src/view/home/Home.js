@@ -1,29 +1,24 @@
 // @flow
 import type {ApplicationState} from '../../state/types'
-import type {
-  Book,
-  Character,
-  Writer,
-  Quote
-} from '../../state/book/types'
+import type {Homework} from '../../state/homework/types'
 
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
 
-import {bookSelectors} from '../../state/book/selectors'
-import {CardList} from '../card'
+import {homeworkSelectors} from '../../state/homework/selectors'
+import {HomeworkList} from '../homework'
 
 type Props = {
-  quoteList: Array<Quote>
+  homeworkList: ?Homework[]
 }
 
 export class Home extends PureComponent<Props> {
   render() {
-    const {quoteList} = this.props
+    const {homeworkList} = this.props
     return (
-     <div className="content">
-       { quoteList && (
-         <CardList quoteList={quoteList} />
+     <div className="container is-fluid">
+       { homeworkList && (
+         <HomeworkList homeWorkList={homeworkList} />
        )}
      </div>
     )
@@ -33,7 +28,7 @@ export class Home extends PureComponent<Props> {
 
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
-    quoteList: bookSelectors.getQuoteList(state)
+    homeworkList: homeworkSelectors.getHomeworkList(state)
   }
 }
 
