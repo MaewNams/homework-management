@@ -1,6 +1,7 @@
 // @flow
 
 export type Homework = {
+  id: string,
   subject: string,
   detail: string,
   date: string,

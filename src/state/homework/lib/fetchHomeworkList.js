@@ -2,6 +2,7 @@
 import type {Homework} from '../types'
 
 const work1: Homework = {
+  id: 'H1',
   subject: 'คณิตศาสตร์',
   detail: 'โจทย์หน้า 1 ข้อ 1.1-1.5',
   date: '22/03/19',
@@ -9,6 +10,7 @@ const work1: Homework = {
 }
 
 const work2: Homework = {
+  id: 'H2',
   subject: 'ภาษาอังกฤษ',
   detail: 'หน้า 23-25 ทุกข้อ',
   date: '24/03/19',
