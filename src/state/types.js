@@ -3,7 +3,6 @@
 
 // @flow
 
-import type {BookState} from './book/types'
 import type {HomeworkState} from './homework/types'
 
 export type Action<P> = {
@@ -16,6 +15,5 @@ export type Reducer<S, P> = (state: S, action: Action<P>) => S
 export type Effect = Generator<any, any, any>
 
 export type ApplicationState = {
-  book: BookState,
   homework: HomeworkState,
 }

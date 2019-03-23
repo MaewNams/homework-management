@@ -1,29 +1,5 @@
 {
   "states": {
-    "book": {
-      "name": "book",
-      "flowType": "BookState",
-      "actions": {
-        "setQuoteList": {
-          "name": "setQuoteList",
-          "flowType": "SetQuoteList",
-          "id": "book/SET_QUOTE_LIST",
-          "reducer": true
-        }
-      },
-      "channels": {},
-      "effects": {
-        "enterHome": {
-          "name": "enterHome"
-        }
-      },
-      "reducers": {},
-      "selectors": {
-        "getQuoteList": {
-          "name": "getQuoteList"
-        }
-      }
-    },
     "homework": {
       "name": "homework",
       "flowType": "HomeworkState",
@@ -33,6 +9,11 @@
           "flowType": "SetHomeworkList",
           "id": "homework/SET_HOMEWORK_LIST",
           "reducer": true
+        },
+        "setWorkGroupList": {
+          "name": "setWorkGroupList",
+          "flowType": "SetWorkGroupList",
+          "id": "homework/SET_WORK_GROUP_LIST"
         }
       },
       "channels": {},
