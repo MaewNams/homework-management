@@ -13,7 +13,8 @@
         "setWorkGroupList": {
           "name": "setWorkGroupList",
           "flowType": "SetWorkGroupList",
-          "id": "homework/SET_WORK_GROUP_LIST"
+          "id": "homework/SET_WORK_GROUP_LIST",
+          "reducer": true
         }
       },
       "channels": {},
