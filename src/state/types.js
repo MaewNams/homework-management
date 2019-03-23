@@ -4,6 +4,7 @@
 // @flow
 
 import type {BookState} from './book/types'
+import type {HomeworkState} from './homework/types'
 
 export type Action<P> = {
   type: string,
@@ -16,4 +17,5 @@ export type Effect = Generator<any, any, any>
 
 export type ApplicationState = {
   book: BookState,
+  homework: HomeworkState,
 }
