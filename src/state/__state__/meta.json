@@ -27,6 +27,9 @@
       "selectors": {
         "getHomeworkList": {
           "name": "getHomeworkList"
+        },
+        "getWorkGroupList": {
+          "name": "getWorkGroupList"
         }
       }
     }
