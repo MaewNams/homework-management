@@ -3,6 +3,8 @@
 
 // @flow
 
+import {setHomeworkList} from './setHomeworkList'
 
 export const homeworkActions = {
+  setHomeworkList,
 }

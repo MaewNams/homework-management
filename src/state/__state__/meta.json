@@ -27,7 +27,13 @@
     "homework": {
       "name": "homework",
       "flowType": "HomeworkState",
-      "actions": {},
+      "actions": {
+        "setHomeworkList": {
+          "name": "setHomeworkList",
+          "flowType": "SetHomeworkList",
+          "id": "homework/SET_HOMEWORK_LIST"
+        }
+      },
       "channels": {},
       "effects": {},
       "reducers": {}
