@@ -1,6 +1,9 @@
 // @flow
 import type {ApplicationState} from '../../state/types'
-import type {Homework} from '../../state/homework/types'
+import type {
+  Homework,
+  WorkGroup,
+} from '../../state/homework/types'
 
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
@@ -17,17 +20,18 @@ const Container = styled.div`
   padding: 1rem;
 `
 type Props = {
-  homeworkList: ?Homework[]
+  homeworkList: ?Homework[],
+  workGroupList: ?WorkGroup[],
 }
 
 export class Home extends PureComponent<Props> {
   render() {
-    const {homeworkList} = this.props
+    const {homeworkList, workGroupList} = this.props
     return (
      <Container className="container is-fluid">
       <div className="media">
         <div className="media-left">
-          <GroupNavbar />
+          <GroupNavbar workGroupList={workGroupList} />
         </div>
         <div className="media-content">
           <HomeworkStatistic />
@@ -46,7 +50,8 @@ export class Home extends PureComponent<Props> {
 
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
-    homeworkList: homeworkSelectors.getHomeworkList(state)
+    homeworkList: homeworkSelectors.getHomeworkList(state),
+    workGroupList: homeworkSelectors.getWorkGroupList(state),
   }
 }
 
