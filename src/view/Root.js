@@ -10,6 +10,7 @@ import {compose, withProps} from 'recompose'
 import {Header} from './common_component'
 import {Home} from './home'
 import {GroupWork} from './group_work'
+import {CreateHomework} from './create_homework'
 
 type Props = {
   view: React.Node,
@@ -41,6 +42,9 @@ const enhance = compose(
     } else if (test('group')) {
       const id = props.route.params.id
     return {view: <GroupWork id={id} /> }
+    } else if (test('create-homework')) {
+      return {view: <CreateHomework />}
+    }
     } else {
       return {view: null}
     }
