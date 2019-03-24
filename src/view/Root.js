@@ -44,7 +44,6 @@ const enhance = compose(
     return {view: <GroupWork id={id} /> }
     } else if (test('create-homework')) {
       return {view: <CreateHomework />}
-    }
     } else {
       return {view: null}
     }
