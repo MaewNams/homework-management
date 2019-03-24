@@ -19,6 +19,12 @@ import {GroupWorkPanel} from '../common_component'
 const Container = styled.div`
   padding: 1rem;
 `
+const CreateButton = styled.div`
+  display: flex;
+  padding-bottom: 0.5rem;
+  flex-direction: row-reverse;
+`
+
 type Props = {
   homeworkList: ?Homework[],
   workGroupList: ?WorkGroup[],
@@ -35,6 +41,9 @@ export class Home extends PureComponent<Props> {
         </div>
         <div className="media-content">
           <HomeworkStatistic />
+          <CreateButton>
+            <a class="button is-primary">สร้างการบ้านใหม่</a>
+          </CreateButton>
           <div className="content">
           { homeworkList && (
             <HomeworkList homeWorkList={homeworkList} />
