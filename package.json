@@ -11,6 +11,7 @@
     "node-polyglot": "^2.3.0",
     "raven-js": "^3.26.4",
     "react": "^16.4.2",
+    "react-datepicker": "^2.2.0",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-router5": "^6.1.0",
