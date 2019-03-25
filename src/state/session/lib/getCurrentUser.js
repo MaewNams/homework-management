@@ -1,6 +1,7 @@
 // @flow
+import type {User} from '../types'
+
 import {authen} from '../../../firebase'
-import type {User} from '../../types'
 
 export function getCurrentUser() :?User {
   if (authen.currentUser) {
