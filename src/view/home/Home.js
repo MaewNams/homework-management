@@ -7,6 +7,7 @@ import type {
 
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
+import {actions} from 'redux-router5'
 import styled from 'styled-components'
 
 import {homeworkSelectors} from '../../state/homework/selectors'
@@ -28,11 +29,17 @@ const CreateButton = styled.div`
 type Props = {
   homeworkList: ?Homework[],
   workGroupList: ?WorkGroup[],
+  navigateTo: Function,
 }
 
 export class Home extends PureComponent<Props> {
+
+  handleGoToCreateHomework = (navigateTo: Function):void => {
+    navigateTo('create-homework')
+  }
+
   render() {
-    const {homeworkList, workGroupList} = this.props
+    const {homeworkList, workGroupList, navigateTo} = this.props
     return (
      <Container className="container is-fluid">
       <div className="media">
@@ -42,7 +49,11 @@ export class Home extends PureComponent<Props> {
         <div className="media-content">
           <HomeworkStatistic />
           <CreateButton>
-            <a class="button is-primary">สร้างการบ้านใหม่</a>
+            <a className="button is-primary" 
+              onClick={() => this.handleGoToCreateHomework(navigateTo)}
+            >
+              สร้างการบ้านใหม่
+            </a>
           </CreateButton>
           <div className="content">
           { homeworkList && (
@@ -65,7 +76,7 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 }
 
 const withStore = connect(mapStateToProps, {
-
+  navigateTo: actions.navigateTo
 })
 
 export default withStore(Home)
