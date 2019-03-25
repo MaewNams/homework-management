@@ -35,7 +35,7 @@ class GroupWorkPanel extends PureComponent<Props> {
             return (
               <GroupContainer key={i} className="panel-block">
               {group.name}
-              <Span class="tag is-danger">({group.workLeft})</Span>
+              <Span className="tag is-danger">({group.workLeft})</Span>
             </GroupContainer>
             )
           })

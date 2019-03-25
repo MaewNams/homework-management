@@ -24,8 +24,8 @@ class HomeworkCard extends PureComponent<Props> {
     return (
       <CardContainer>
         <div className="card">
-          <header class="card-header">
-            <p class="card-header-title">
+          <header className="card-header">
+            <p className="card-header-title">
               เหลือเวลาอีก 2 วัน
             </p>
           </header>
@@ -35,7 +35,7 @@ class HomeworkCard extends PureComponent<Props> {
               <br />
               รายละเอียด: {homework.detail}
               <br />
-              กำหนดส่ง: <time datetime="2016-1-1">{homework.date}</time>
+              กำหนดส่ง: <time>{homework.date}</time>
             </div>
           </div>
           <BottomMenu>
