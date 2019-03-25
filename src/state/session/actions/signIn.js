@@ -2,15 +2,17 @@
 import type {Action} from '../../../state/types'
 
 export type SignInPayload = {
-  // TODO: Add payload content
+  email: string,
+  password: string
 }
 
 const id = 'session/SIGN_IN'
 
-export const signIn = (): Action<SignInPayload> => ({
+export const signIn = (email: string, password: string): Action<SignInPayload> => ({
   type: id,
   payload: {
-    // TODO: Add payload content
+    email,
+    password
   }
 })
 
