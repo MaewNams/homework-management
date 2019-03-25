@@ -50,7 +50,11 @@
         }
       },
       "channels": {},
-      "effects": {},
+      "effects": {
+        "signIn": {
+          "name": "signIn"
+        }
+      },
       "reducers": {}
     }
   }

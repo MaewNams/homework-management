@@ -3,6 +3,8 @@
 
 // @flow
 
+import {signInEffect} from './signIn'
 
 export const sessionEffects = [
+  signInEffect,
 ]
