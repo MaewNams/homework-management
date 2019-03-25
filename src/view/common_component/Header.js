@@ -1,5 +1,9 @@
 // @flow
+import type {ApplicationState} from '../../state/types'
+
 import React, { PureComponent } from 'react'
+import {connect} from 'react-redux'
+import {actions} from 'redux-router5'
 import styled from 'styled-components' 
 
 const NavButton = styled.a `
@@ -9,10 +13,12 @@ const NavButton = styled.a `
 
 type Props = {
   // signIn: Function,
+  navigateTo: Function,
 }
 
 export class Header extends PureComponent<Props> {
   render() {
+    const {navigateTo} = this.props
     return (
       <nav className="navbar header" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
@@ -21,7 +27,7 @@ export class Header extends PureComponent<Props> {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </NavButton>
-          <a className="navbar-item">
+          <a onClick={() => navigateTo('home')} className="navbar-item">
             SQUARE BOX
           </a>
         </div>
@@ -30,4 +36,14 @@ export class Header extends PureComponent<Props> {
   } 
 }
 
-export default Header
+const mapStateToProps = (state: ApplicationState, props: Props) => {
+  return {
+
+  }
+}
+
+const withStore = connect(mapStateToProps, {
+  navigateTo: actions.navigateTo
+})
+
+export default withStore(Header)
