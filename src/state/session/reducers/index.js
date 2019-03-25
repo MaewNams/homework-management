@@ -6,10 +6,13 @@
 import type {Action} from '../../types'
 import type {SessionState} from '../types'
 
+import {setUserReducer} from './setUser'
 import {initialState} from './initialState'
 
 export const sessionReducer = (state: SessionState = initialState, action: Action<any>): SessionState => {
   switch (action.type) {
+    case 'session/SET_USER':
+      return setUserReducer(state, action)
     default:
       return state
   }

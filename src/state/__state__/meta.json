@@ -36,7 +36,19 @@
     "session": {
       "name": "session",
       "flowType": "SessionState",
-      "actions": {},
+      "actions": {
+        "signIn": {
+          "name": "signIn",
+          "flowType": "SignIn",
+          "id": "session/SIGN_IN"
+        },
+        "setUser": {
+          "name": "setUser",
+          "flowType": "SetUser",
+          "id": "session/SET_USER",
+          "reducer": true
+        }
+      },
       "channels": {},
       "effects": {},
       "reducers": {}

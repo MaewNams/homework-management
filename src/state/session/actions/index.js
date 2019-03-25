@@ -3,6 +3,10 @@
 
 // @flow
 
+import {signIn} from './signIn'
+import {setUser} from './setUser'
 
 export const sessionActions = {
+  signIn,
+  setUser,
 }
