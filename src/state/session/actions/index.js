@@ -5,8 +5,10 @@
 
 import {signIn} from './signIn'
 import {setUser} from './setUser'
+import {signUp} from './signUp'
 
 export const sessionActions = {
   signIn,
   setUser,
+  signUp,
 }

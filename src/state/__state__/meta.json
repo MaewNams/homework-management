@@ -47,12 +47,20 @@
           "flowType": "SetUser",
           "id": "session/SET_USER",
           "reducer": true
+        },
+        "signUp": {
+          "name": "signUp",
+          "flowType": "SignUp",
+          "id": "session/SIGN_UP"
         }
       },
       "channels": {},
       "effects": {
         "signIn": {
           "name": "signIn"
+        },
+        "signUp": {
+          "name": "signUp"
         }
       },
       "reducers": {}

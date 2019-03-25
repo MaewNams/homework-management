@@ -4,7 +4,9 @@
 // @flow
 
 import {signInEffect} from './signIn'
+import {signUpEffect} from './signUp'
 
 export const sessionEffects = [
   signInEffect,
+  signUpEffect,
 ]
