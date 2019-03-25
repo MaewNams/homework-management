@@ -15,7 +15,7 @@ import {getCurrentUser} from '../lib/getCurrentUser'
 export function* signInEffect(): Effect {
   // TODO: put your effect logic here
   while (true) {
-    const {payload: {username, password}}: Action<SignInPayload> = yield take(sessionActions.signIn.id)
+    const {payload: {username, password}} = yield take(sessionActions.signIn.id)
     try{
       yield call(signIn, username, password)
       const user = getCurrentUser
