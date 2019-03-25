@@ -32,6 +32,14 @@
           "name": "getWorkGroupList"
         }
       }
+    },
+    "session": {
+      "name": "session",
+      "flowType": "SessionState",
+      "actions": {},
+      "channels": {},
+      "effects": {},
+      "reducers": {}
     }
   }
 }

@@ -8,6 +8,8 @@ import {router} from '../router'
 import {initialState} from './initialState'
 import {homeworkReducer} from './homework/reducers'
 import {homeworkEffects} from './homework/effects'
+import {sessionReducer} from './session/reducers'
+import {sessionEffects} from './session/effects'
 
 const sagaMiddleware = createSagaMiddleware()
 const routerMiddleware = createRouterMiddleware(router)
@@ -18,6 +20,7 @@ const store = createStore(
   combineReducers({
     router: router5Reducer,
     homework: homeworkReducer,
+    session: sessionReducer,
   }),
   initialState,
   composeEnhancers(applyMiddleware(
@@ -26,6 +29,7 @@ const store = createStore(
 )
 
 homeworkEffects.forEach(fx => sagaMiddleware.run(fx))
+sessionEffects.forEach(fx => sagaMiddleware.run(fx))
 
 export {
   store
