@@ -63,7 +63,12 @@
           "name": "signUp"
         }
       },
-      "reducers": {}
+      "reducers": {},
+      "selectors": {
+        "getUser": {
+          "name": "getUser"
+        }
+      }
     }
   }
 }
