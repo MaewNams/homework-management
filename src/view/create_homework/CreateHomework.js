@@ -1,12 +1,16 @@
 // @flow
+import type {ApplicationState} from '../../state/types'
 import type {Homework} from '../../state/homework/types'
 
 import React, {Component } from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import {DateTime} from 'luxon'
+import {connect} from 'react-redux'
+import {actions} from 'redux-router5'
+import "react-datepicker/dist/react-datepicker.css"
 
-import "react-datepicker/dist/react-datepicker.css";
+import {homeworkActions} from '../../state/homework/actions'
 
 const FormContainer = styled.div`
   padding: 1rem;
@@ -19,7 +23,7 @@ const BottomMenu = styled.div`
   padding-bottom: 1rem;
 `
 type Props = {
- 
+ createHomeWork: Function,
 }
 
 type State = {
@@ -36,17 +40,23 @@ class CreateHomework extends Component<Props, State> {
     submitDate: new Date(),
   }
 
-  handleSelectDate = (date:any):void => {
+  handleSelectDate = (date: any):void => {
     this.setState({
       submitDate: date ,
     })
   }
 
-  handleChange = (e:any):void => {
+  handleChange = (e: any):void => {
     this.setState({
       [e.target.name]: e.target.value,
     })
-    
+  }
+
+  handleCreateHomework = (e: any):void => {
+    e.preventDefault()
+    const {subject, detail, submitDate} = this.state
+    const {createHomeWork} = this.props 
+    createHomeWork(subject, detail, submitDate)
   }
     
   render() {
@@ -88,22 +98,9 @@ class CreateHomework extends Component<Props, State> {
           </div>
         </div>
 
-        <div className="field">
-          <div className="control">
-            <label className="radio">
-              <input type="radio" name="question" />
-              Yes
-            </label>
-            <label className="radio">
-              <input type="radio" name="question" />
-              No
-            </label>
-          </div>
-        </div>
-
         <div className="field is-grouped">
           <div className="control">
-            <button className="button is-primary">สร้าง</button>
+            <button onClick={this.handleCreateHomework} className="button is-primary">สร้าง</button>
           </div>
           <div className="control">
             <button className="button is-text">ยกเลิก</button>
@@ -114,4 +111,14 @@ class CreateHomework extends Component<Props, State> {
   }
 }
 
-export default CreateHomework
+const mapStateToProps = (state: ApplicationState, props: Props) => {
+  return {
+   
+  }
+}
+
+const withStore = connect(mapStateToProps, {
+  createHomeWork: homeworkActions.createHomework
+})
+
+export default withStore(CreateHomework)
