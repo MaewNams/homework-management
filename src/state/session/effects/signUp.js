@@ -7,6 +7,7 @@ import {
   take,
   put
 } from 'redux-saga/effects'
+import {actions} from 'redux-router5'
 
 import {sessionActions} from '../actions'
 import {signUp} from '../lib/signUp'
@@ -20,8 +21,9 @@ export function* signUpEffect(): Effect {
     try{
       yield call(signUp, email, password)
       yield call(signIn, email, password)
-      const user = getCurrentUser
-      console.log('user', user)
+      const user = yield call(getCurrentUser)
+      yield put(sessionActions.setUser(user))
+      yield put(actions.navigateTo('home'))
      }
     catch(error){
       console.log('error', error)
