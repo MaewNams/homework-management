@@ -93,12 +93,12 @@ class SignIn extends Component<Props, State> {
 
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
-    signIn: sessionActions.signIn, 
+   
   }
 }
 
 const withStore = connect(mapStateToProps, {
-
+  signIn: sessionActions.signIn, 
 })
 
 export default withStore(SignIn)

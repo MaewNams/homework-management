@@ -42,9 +42,11 @@ class SignUp extends Component<Props, State> {
   }
 
   handleSignUp = (e:any):void => {
+    console.log('in handleSignUp')
     e.preventDefault()
     const {signUp} = this.props
     const {email, password} = this.state
+    console.log('email pass', email, password)
     signUp(email, password)
   }
     
@@ -56,15 +58,16 @@ class SignUp extends Component<Props, State> {
         <div className="field">
           <label className="label">Email</label>
           <div className="control has-icons-left has-icons-right">
-            <input className="input is-danger" type="email" placeholder="Email input" value="hello@" />
+            <input className="input" 
+              type="email" name="email"
+              placeholder="Email input" 
+              value={values.email}
+              onChange= {this.handleChange}
+            />
             <span className="icon is-small is-left">
-              <i className="fas fa-envelope"></i>
-            </span>
-            <span className="icon is-small is-right">
-              <i className="fas fa-exclamation-triangle"></i>
+              <i className="fa fa-envelope"></i>
             </span>
           </div>
-          <p className="help is-danger">This email is invalid</p>
         </div>
 
         <div className="field">
@@ -73,7 +76,7 @@ class SignUp extends Component<Props, State> {
             <input className="input" type="password" 
             name="password" placeholder="Text input" 
             value={values.password} 
-            onChange= {this.handleChange}
+            onChange={this.handleChange}
           />
           </div>
         </div>
@@ -91,7 +94,7 @@ class SignUp extends Component<Props, State> {
 
         <div className="field is-grouped">
           <div className="control">
-            <button onClick={() => this.handleSignUp} className="button is-primary">สมัครสมาชิก</button>
+            <button onClick={this.handleSignUp} className="button is-primary">สมัครสมาชิก</button>
           </div>
           <div className="control">
             <button className="button is-text">ยกเลิก</button>
@@ -104,12 +107,12 @@ class SignUp extends Component<Props, State> {
 
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
-    signUp: sessionActions.signUp, 
+
   }
 }
 
 const withStore = connect(mapStateToProps, {
-
+  signUp: sessionActions.signUp, 
 })
 
 export default withStore(SignUp)
