@@ -4,6 +4,7 @@ import type {ApplicationState} from '../../state/types'
 import React, {Component } from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
+import {actions} from 'redux-router5'
 
 import {sessionActions} from '../../state/session/actions'
 
@@ -19,6 +20,7 @@ const BottomMenu = styled.div`
 `
 type Props = {
   signIn: Function,
+  navigateTo: Function,
 }
 
 type State = {
@@ -48,20 +50,17 @@ class SignIn extends Component<Props, State> {
   }
     
   render() {
-    const {signIn} = this.props
+    const {navigateTo} = this.props
     const values = this.state
     return (
       <FormContainer>
         <div className="field">
           <label className="label">Email</label>
-          <div className="control has-icons-left has-icons-right">
-            <input className="input is-danger" type="email" placeholder="Email input" value="hello@" />
-            <span className="icon is-small is-left">
-              <i className="fas fa-envelope"></i>
-            </span>
-            <span className="icon is-small is-right">
-              <i className="fas fa-exclamation-triangle"></i>
-            </span>
+          <div className="control">
+            <input className="input" 
+              type="email" name="email"
+              placeholder="Email input" value={values.email}
+            />
           </div>
           <p className="help is-danger">This email is invalid</p>
         </div>
@@ -79,7 +78,10 @@ class SignIn extends Component<Props, State> {
 
         <div className="field is-grouped">
           <div className="control">
-            <button className="button is-primary">สมัครสมาชิก</button>
+            <button onClick={this.handleSignIn} className="button is-primary">เข้าสู่ระบบ</button>
+          </div>
+          <div className="control">
+            <button onClick={() => navigateTo('sign-up')} className="button is-primary">สมัครสมาชิก</button>
           </div>
           <div className="control">
             <button className="button is-text">ยกเลิก</button>
@@ -99,6 +101,7 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 
 const withStore = connect(mapStateToProps, {
   signIn: sessionActions.signIn, 
+  navigateTo: actions.navigateTo,
 })
 
 export default withStore(SignIn)
