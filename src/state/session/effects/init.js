@@ -20,7 +20,7 @@ export function* initEffect(): Effect {
     if (transition.payload.route.name === 'init') { 
       const user: ?User = yield call(getCurrentUser)
       if (!user) {
-        yield put(actions.navigateTo('sign-up'))
+        yield put(actions.navigateTo('sign-in'))
       } else {
         yield put(actions.navigateTo('home'))
       }
