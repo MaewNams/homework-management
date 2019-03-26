@@ -2,15 +2,19 @@
 import type {Action} from '../../../state/types'
 
 export type CreateHomeworkPayload = {
-  // TODO: Add payload content
+  subject: string,
+  detail: string,
+  date: string,
 }
 
 const id = 'homework/CREATE_HOMEWORK'
 
-export const createHomework = (): Action<CreateHomeworkPayload> => ({
+export const createHomework = (subject: string, detail: string, date: string): Action<CreateHomeworkPayload> => ({
   type: id,
   payload: {
-    // TODO: Add payload content
+    subject,
+    detail,
+    date,
   }
 })
 
