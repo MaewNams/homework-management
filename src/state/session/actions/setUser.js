@@ -1,16 +1,17 @@
 // @flow
+import type {User} from '../types'
 import type {Action} from '../../../state/types'
 
 export type SetUserPayload = {
-  // TODO: Add payload content
+  user: ?User
 }
 
 const id = 'session/SET_USER'
 
-export const setUser = (): Action<SetUserPayload> => ({
+export const setUser = (user: ?User): Action<SetUserPayload> => ({
   type: id,
   payload: {
-    // TODO: Add payload content
+    user
   }
 })
 
