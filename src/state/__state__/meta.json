@@ -15,12 +15,20 @@
           "flowType": "SetWorkGroupList",
           "id": "homework/SET_WORK_GROUP_LIST",
           "reducer": true
+        },
+        "createHomework": {
+          "name": "createHomework",
+          "flowType": "CreateHomework",
+          "id": "homework/CREATE_HOMEWORK"
         }
       },
       "channels": {},
       "effects": {
         "init": {
           "name": "init"
+        },
+        "createHomework": {
+          "name": "createHomework"
         }
       },
       "reducers": {},

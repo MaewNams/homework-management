@@ -4,7 +4,9 @@
 // @flow
 
 import {initEffect} from './init'
+import {createHomeworkEffect} from './createHomework'
 
 export const homeworkEffects = [
   initEffect,
+  createHomeworkEffect,
 ]

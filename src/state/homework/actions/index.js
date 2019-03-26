@@ -5,8 +5,10 @@
 
 import {setHomeworkList} from './setHomeworkList'
 import {setWorkGroupList} from './setWorkGroupList'
+import {createHomework} from './createHomework'
 
 export const homeworkActions = {
   setHomeworkList,
   setWorkGroupList,
+  createHomework,
 }
