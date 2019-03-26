@@ -7,10 +7,12 @@ import {createRouteNodeSelector} from 'redux-router5'
 import {startsWithSegment} from 'router5-helpers'
 import {compose, withProps} from 'recompose'
 
+import {CreateHomework} from './create_homework'
+import {GroupWork} from './group_work'
 import {Header} from './common_component'
 import {Home} from './home'
-import {GroupWork} from './group_work'
-import {CreateHomework} from './create_homework'
+import {SignIn} from './sign_in'
+import {SignUp} from './sign_up'
 
 type Props = {
   view: React.Node,
@@ -39,6 +41,10 @@ const enhance = compose(
     const test = startsWithSegment(name)
     if (test('home')) {
     return {view: <Home /> }
+    } else if (test('sign-in')) {
+    return {view: <SignIn />}
+    } else if (test('sign-up')) {
+    return {view: <SignUp />}
     } else if (test('group')) {
       const id = props.route.params.id
     return {view: <GroupWork id={id} /> }

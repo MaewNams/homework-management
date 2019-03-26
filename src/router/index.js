@@ -22,11 +22,13 @@ const routes = [
   createRoute('init', '/init'),
   createRoute('home', '/home'),
   createRoute('create-homework', '/create-homework'),
-  createRoute('group', '/group/:id')
+  createRoute('group', '/group/:id'),
+  createRoute('sign-in', '/sign-in'),
+  createRoute('sign-out', '/sign-out'),
 ]
 
 const options = {
-  defaultRoute: 'home'
+  defaultRoute: 'sign-in'
 }
 
 export const router = createRouter(routes, options)
