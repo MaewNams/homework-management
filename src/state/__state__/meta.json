@@ -72,6 +72,9 @@
         },
         "signOut": {
           "name": "signOut"
+        },
+        "watchUser": {
+          "name": "watchUser"
         }
       },
       "reducers": {},

@@ -7,10 +7,12 @@ import {signInEffect} from './signIn'
 import {signUpEffect} from './signUp'
 import {initEffect} from './init'
 import {signOutEffect} from './signOut'
+import {watchUserEffect} from './watchUser'
 
 export const sessionEffects = [
   signInEffect,
   signUpEffect,
   initEffect,
   signOutEffect,
+  watchUserEffect,
 ]
