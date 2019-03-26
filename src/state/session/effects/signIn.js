@@ -7,6 +7,7 @@ import {
   take,
   put
 } from 'redux-saga/effects'
+import {actions} from 'redux-router5'
 
 import {sessionActions} from '../actions'
 import {signIn} from '../lib/signIn'
@@ -15,22 +16,20 @@ import {getCurrentUser} from '../lib/getCurrentUser'
 export function* signInEffect(): Effect {
   // TODO: put your effect logic here
   while (true) {
-    const {payload: {username, password}} = yield take(sessionActions.signIn.id)
+    const {payload: {email, password}} = yield take(sessionActions.signIn.id)
     try{
-      yield call(signIn, username, password)
-      const user = getCurrentUser
+      yield call(signIn, email, password)
+      const user = yield call(getCurrentUser)
       if (user) {
-        console.log('login success', user)
+        yield put(sessionActions.setUser(user))
+        yield put(actions.navigateTo('home'))
       } else {
-        console.log('no user fuck you!')
+        console.log('some critical problem happen!')
       }
-      // yield put(sessionActions.setSignInStatus({isError: false, isLoading: false, isSuccess: true, message: 'SignInSuccess'}))
-      // yield put(routerActions.navigateTo('home.index'))
      }
     catch(error){
+      //Cant log in
       console.log('error', error)
-      // yield put(sessionActions.setSignInStatus({isError: true, isLoading: false,
-      //   isSuccess: false, message: error.code}))
     }
   }
 }
