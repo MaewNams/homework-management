@@ -8,5 +8,6 @@ export function setUserReducer(state: SessionState, action: Action<SetUserPayloa
 
   return {
     ...state,
+    user: action.payload.user
   }
 }
