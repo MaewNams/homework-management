@@ -24,11 +24,11 @@ const routes = [
   createRoute('create-homework', '/create-homework'),
   createRoute('group', '/group/:id'),
   createRoute('sign-in', '/sign-in'),
-  createRoute('sign-out', '/sign-out'),
+  createRoute('sign-up', '/sign-up'),
 ]
 
 const options = {
-  defaultRoute: 'sign-in'
+  defaultRoute: 'init'
 }
 
 export const router = createRouter(routes, options)
