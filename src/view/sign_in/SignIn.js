@@ -59,6 +59,7 @@ class SignIn extends Component<Props, State> {
           <div className="control">
             <input className="input" 
               type="email" name="email"
+              onChange={this.handleChange}
               placeholder="Email input" value={values.email}
             />
           </div>
