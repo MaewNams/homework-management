@@ -6,8 +6,12 @@ import {db} from '../../../firebase'
 
 export async function fetchHomeworkList(user: User): Promise<?Homework[]> {
   const snapShot = await db.collection('homeworks').doc(user.uid).get()
+  const homeworkList = []
   if (snapShot.exists) {
-    return snapShot.data()
+    const data =  snapShot.data()
+    for (const id in data) {
+      homeworkList.push(data[id])
+    }
   } 
-  return null
+  return homeworkList
 }
