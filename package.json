@@ -8,7 +8,7 @@
     "firebase": "^5.9.1",
     "flow": "^0.2.3",
     "localforage": "^1.7.2",
-    "luxon": "^1.12.0",
+    "moment": "^2.24.0",
     "node-polyglot": "^2.3.0",
     "raven-js": "^3.26.4",
     "react": "^16.4.2",
