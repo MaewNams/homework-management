@@ -43,7 +43,7 @@ class GroupWorkPanel extends PureComponent<Props> {
 
         <div className="panel-block">
           <button className="button is-link is-outlined is-fullwidth">
-            reset all filters
+            สร้างกลุ่มงาน
           </button>
         </div>
       </nav>
