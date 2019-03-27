@@ -11,7 +11,6 @@ const Container = styled.div `
 `
 
 type Props = {
-  // signIn: Function,
   navigateTo: Function,
 }
 
@@ -21,10 +20,10 @@ export class Header extends PureComponent<Props> {
     return (
       <Container className="container is-fluid">
         <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
-            <div className="navbar-end">
+            <div className="navbar-start">
               <a onClick={() => navigateTo('home')} className="navbar-item">
                 <span class="icon">
-                  <i class="fa fa-square-o" aria-hidden="true"></i>
+                  <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
                 </span>
                 <span>
                   SQUARE BOX
