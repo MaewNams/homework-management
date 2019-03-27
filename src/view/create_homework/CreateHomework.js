@@ -5,7 +5,7 @@ import type {Homework} from '../../state/homework/types'
 import React, {Component } from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
-import {DateTime} from 'luxon'
+import moment from 'moment'
 import {connect} from 'react-redux'
 import {actions} from 'redux-router5'
 import "react-datepicker/dist/react-datepicker.css"
@@ -56,7 +56,8 @@ class CreateHomework extends Component<Props, State> {
     e.preventDefault()
     const {subject, detail, submitDate} = this.state
     const {createHomeWork} = this.props 
-    createHomeWork(subject, detail, submitDate)
+    const date = moment(submitDate).locale('th').format("D MMMM YYYY")
+    createHomeWork(subject, detail, date)
   }
     
   render() {
