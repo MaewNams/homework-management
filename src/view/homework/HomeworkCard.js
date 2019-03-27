@@ -15,10 +15,19 @@ const BottomMenu = styled.div`
   padding-bottom: 1rem;
 `
 type Props = {
-  homework: Homework
+  homework: Homework,
+  deleteHomework: Function,
 }
 
 class HomeworkCard extends PureComponent<Props> {
+
+  handleDelete = (e:any):void => {
+    e.preventDefault()
+    console.log('in handleDelete')
+    const {deleteHomework, homework} = this.props
+    deleteHomework(homework.id)
+  }
+
   render() {
     const {homework} = this.props
     return (
@@ -41,7 +50,7 @@ class HomeworkCard extends PureComponent<Props> {
           <BottomMenu>
             <a className="button is-primary">Done</a>
             <a className="button is-info">Edit</a>
-            <a className="button is-danger">Delete</a>
+            <a onClick={this.handleDelete} className="button is-danger">Delete</a>
           </BottomMenu>
         </div>
       </CardContainer>
