@@ -12,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css"
 
 import {homeworkActions} from '../../state/homework/actions'
 
-const FormContainer = styled.div`
+const Container = styled.div`
   padding: 1rem;
 `
 const BottomMenu = styled.div`
@@ -24,6 +24,7 @@ const BottomMenu = styled.div`
 `
 type Props = {
  createHomeWork: Function,
+ navigateTo: Function,
 }
 
 type State = {
@@ -61,10 +62,10 @@ class CreateHomework extends Component<Props, State> {
   }
     
   render() {
-    const {} = this.props
+    const {navigateTo} = this.props
     const values = this.state
     return (
-      <FormContainer>
+      <Container className="container is-fluid">
         <div className="field">
           <label className="label">กำหนดส่ง</label>
           <div className="control">
@@ -104,10 +105,10 @@ class CreateHomework extends Component<Props, State> {
             <button onClick={this.handleCreateHomework} className="button is-primary">สร้าง</button>
           </div>
           <div className="control">
-            <button className="button is-text">ยกเลิก</button>
+            <button onClick={() => navigateTo('home')} className="button is-text">ยกเลิก</button>
           </div> 
         </div>
-      </FormContainer>
+      </Container>
     )
   }
 }
@@ -119,7 +120,8 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 }
 
 const withStore = connect(mapStateToProps, {
-  createHomeWork: homeworkActions.createHomework
+  createHomeWork: homeworkActions.createHomework,
+  navigateTo: actions.navigateTo
 })
 
 export default withStore(CreateHomework)
