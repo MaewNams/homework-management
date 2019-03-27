@@ -36,9 +36,6 @@ export class GroupWork extends PureComponent<Props> {
         <div className="media-content">
           <HomeworkStatistic />
           <div className="content">
-          { homeworkList && (
-            <HomeworkList homeWorkList={homeworkList} />
-          )}
           </div>
         </div>
       </div>
