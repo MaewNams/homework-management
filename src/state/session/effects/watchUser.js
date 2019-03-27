@@ -12,6 +12,8 @@ import {actions} from 'redux-router5'
 
 import {observerUser} from './observerUser'
 import {sessionActions} from '../actions'
+import {fetchHomeworkList} from '../../homework/lib/fetchHomeworkList'
+import {homeworkActions} from '../../homework/actions'
 
 export function* watchUserEffect(): Effect {
   const channel = yield call(observerUser)
@@ -22,6 +24,8 @@ export function* watchUserEffect(): Effect {
         yield put(sessionActions.setUser(null))
       } else {
         yield put(sessionActions.setUser(user))
+        const homeworkList = yield call(fetchHomeworkList, user)
+        yield put(homeworkActions.setHomeworkList(homeworkList))
       }
     }
 }
