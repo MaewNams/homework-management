@@ -5,8 +5,10 @@
 
 import {initEffect} from './init'
 import {createHomeworkEffect} from './createHomework'
+import {deleteHomeworkEffect} from './deleteHomework'
 
 export const homeworkEffects = [
   initEffect,
   createHomeworkEffect,
+  deleteHomeworkEffect,
 ]

@@ -20,6 +20,11 @@
           "name": "createHomework",
           "flowType": "CreateHomework",
           "id": "homework/CREATE_HOMEWORK"
+        },
+        "deleteHomework": {
+          "name": "deleteHomework",
+          "flowType": "DeleteHomework",
+          "id": "homework/DELETE_HOMEWORK"
         }
       },
       "channels": {},
@@ -29,6 +34,9 @@
         },
         "createHomework": {
           "name": "createHomework"
+        },
+        "deleteHomework": {
+          "name": "deleteHomework"
         }
       },
       "reducers": {},
