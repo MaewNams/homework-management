@@ -49,7 +49,6 @@ class HomeworkCard extends PureComponent<Props> {
           </div>
           <BottomMenu>
             <a className="button is-primary">Done</a>
-            <a className="button is-info">Edit</a>
             <a onClick={this.handleDelete} className="button is-danger">Delete</a>
           </BottomMenu>
         </div>
