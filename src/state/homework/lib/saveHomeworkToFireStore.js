@@ -7,15 +7,16 @@ import {
 } from '../../../firebase'
 
 export const saveHomeworkToFireStore = async (id: string, subject: string, detail: string, date: string, user: User): Promise<any> => {
-
- db.collection('homeworks').doc(id).set({
-    owner: user.uid,
+  const homework = {
     id: id,
     subject: subject,
     detail: detail,
     date: date,
     status: 'ยังไม่เสร็จ'
-  })
+  }
+ db.collection('homeworks').doc(user.uid).set({
+    [id]: homework
+  }, {merge: true})
 
 }
 
