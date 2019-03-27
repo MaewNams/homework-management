@@ -1,24 +1,13 @@
 // @flow
 import type {Homework} from '../types'
+import type {User} from '../../session/types'
 
-const work1: Homework = {
-  id: 'H1',
-  subject: 'คณิตศาสตร์',
-  detail: 'โจทย์หน้า 1 ข้อ 1.1-1.5',
-  date: '22/03/19',
-  status: 'onGoing',
-}
+import {db} from '../../../firebase'
 
-const work2: Homework = {
-  id: 'H2',
-  subject: 'ภาษาอังกฤษ',
-  detail: 'หน้า 23-25 ทุกข้อ',
-  date: '24/03/19',
-  status: 'onGoing',
-}
-
-//Now we mock data 
-export const fetchHomeworkList = (): Homework[] => {
-  const homeworkList = [work1, work2]
-  return homeworkList
+export async function fetchHomeworkList(user: User): Promise<?Homework[]> {
+  const snapShot = await db.collection('homeworks').doc(user.uid).get()
+  if (snapShot.exists) {
+    return snapShot.data()
+  } 
+  return null
 }
