@@ -7,6 +7,6 @@ import {
 } from '../../../firebase'
 
 export async function deleteHomework(user: User, homeworkId: string): Promise<any> {
-    await db.collection('homeworks').doc(user.uid).where('id' === homeworkId).delete()
+    await db.collection('homeworks').doc(homeworkId).delete()
 }
 
