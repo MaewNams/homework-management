@@ -1,4 +1,5 @@
 // @flow
+import type {Homework} from '../homework/types'
 
 export type GroupWork = {
   id: string,
@@ -8,4 +9,5 @@ export type GroupWork = {
 
 export type GroupworkState = {
   groupWorkList: ?GroupWork[],
+  groupHomeworkList: ?Homework[],
 }
