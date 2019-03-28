@@ -22,7 +22,9 @@ export function* createGroupHomeworkEffect(): Effect {
     const homeworkId: string = yield call(generateHomeworkId)
     try {
       yield call(saveGroupHomeworkToFireStore,groupId, homeworkId, subject, detail, date, user)
-      yield put(actions.navigateTo('home'))
+      yield put(actions.navigateTo('group', {
+        id: groupId
+      }))
     }
     catch(error){
       console.log('error', error)
