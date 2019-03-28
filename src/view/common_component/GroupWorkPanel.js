@@ -1,5 +1,5 @@
 // @flow
-import type {WorkGroup} from '../../state/homework/types'
+import type {GroupWork} from '../../state/groupWork/types'
 
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
@@ -16,12 +16,12 @@ const Span = styled.span`
   padding-left: 0.5rem;
 `
 type Props = {
-  workGroupList: ?WorkGroup[]
+  groupWorkList: ?GroupWork[]
 }
 
 class GroupWorkPanel extends PureComponent<Props> {
   render() {
-    const {workGroupList} = this.props
+    const {groupWorkList} = this.props
     return (
       <nav className="panel">
         <div className="panel-block">
@@ -30,12 +30,12 @@ class GroupWorkPanel extends PureComponent<Props> {
           </span>
           กลุ่มงาน
         </div>
-        { workGroupList && (
-          workGroupList.map((group, i) => {
+        { groupWorkList && (
+          groupWorkList.map((group, i) => {
             return (
               <GroupContainer key={i} className="panel-block">
               {group.name}
-              <Span className="tag is-danger">({group.workLeft})</Span>
+              <Span className="tag is-danger">({group.groupHomeworks.length})</Span>
             </GroupContainer>
             )
           })
