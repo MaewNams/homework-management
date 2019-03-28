@@ -4,13 +4,13 @@
 // @flow
 
 import {setHomeworkList} from './setHomeworkList'
-import {setWorkGroupList} from './setWorkGroupList'
 import {createHomework} from './createHomework'
 import {deleteHomework} from './deleteHomework'
+import {setGroupHomeworkList} from './setGroupHomeworkList'
 
 export const homeworkActions = {
   setHomeworkList,
-  setWorkGroupList,
   createHomework,
   deleteHomework,
+  setGroupHomeworkList,
 }

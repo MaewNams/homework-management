@@ -4,9 +4,9 @@
 // @flow
 
 import {getHomeworkList} from './getHomeworkList'
-import {getWorkGroupList} from './getWorkGroupList'
+import {getGroupHomeworkList} from './getGroupHomeworkList'
 
 export const homeworkSelectors = {
   getHomeworkList,
-  getWorkGroupList,
+  getGroupHomeworkList,
 }

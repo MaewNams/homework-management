@@ -10,12 +10,6 @@
           "id": "homework/SET_HOMEWORK_LIST",
           "reducer": true
         },
-        "setWorkGroupList": {
-          "name": "setWorkGroupList",
-          "flowType": "SetWorkGroupList",
-          "id": "homework/SET_WORK_GROUP_LIST",
-          "reducer": true
-        },
         "createHomework": {
           "name": "createHomework",
           "flowType": "CreateHomework",
@@ -25,6 +19,12 @@
           "name": "deleteHomework",
           "flowType": "DeleteHomework",
           "id": "homework/DELETE_HOMEWORK"
+        },
+        "setGroupHomeworkList": {
+          "name": "setGroupHomeworkList",
+          "flowType": "SetGroupHomeworkList",
+          "id": "homework/SET_GROUP_HOMEWORK_LIST",
+          "reducer": true
         }
       },
       "channels": {},
@@ -44,8 +44,8 @@
         "getHomeworkList": {
           "name": "getHomeworkList"
         },
-        "getWorkGroupList": {
-          "name": "getWorkGroupList"
+        "getGroupHomeworkList": {
+          "name": "getGroupHomeworkList"
         }
       }
     },
@@ -125,6 +125,11 @@
           "name": "createGroupHomework",
           "flowType": "CreateGroupHomework",
           "id": "groupWork/CREATE_GROUP_HOMEWORK"
+        },
+        "deleteGroupHomework": {
+          "name": "deleteGroupHomework",
+          "flowType": "DeleteGroupHomework",
+          "id": "groupWork/DELETE_GROUP_HOMEWORK"
         }
       },
       "channels": {},

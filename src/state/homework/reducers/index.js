@@ -7,15 +7,15 @@ import type {Action} from '../../types'
 import type {HomeworkState} from '../types'
 
 import {setHomeworkListReducer} from './setHomeworkList'
-import {setWorkGroupListReducer} from './setWorkGroupList'
+import {setGroupHomeworkListReducer} from './setGroupHomeworkList'
 import {initialState} from './initialState'
 
 export const homeworkReducer = (state: HomeworkState = initialState, action: Action<any>): HomeworkState => {
   switch (action.type) {
     case 'homework/SET_HOMEWORK_LIST':
       return setHomeworkListReducer(state, action)
-    case 'homework/SET_WORK_GROUP_LIST':
-      return setWorkGroupListReducer(state, action)
+    case 'homework/SET_GROUP_HOMEWORK_LIST':
+      return setGroupHomeworkListReducer(state, action)
     default:
       return state
   }

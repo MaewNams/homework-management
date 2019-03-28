@@ -1,8 +1,5 @@
 // @flow
-import type {
-  Homework,
-  WorkGroup,
-} from '../types'
+import type {Homework} from '../types'
 import type {
   User,
 } from '../../session/types'
@@ -18,9 +15,10 @@ import {
 import {actionTypes as routerTypes} from 'redux-router5'
 
 import {homeworkActions} from '../actions'
+import {groupWorkActions} from '../../groupWork/actions'
 import {sessionSelectors} from '../../session/selectors'
 import {fetchHomeworkList} from '../lib/fetchHomeworkList'
-import {fetchWorkGroupList} from '../lib/fetchWorkGroupList'
+import {fetchGroupHomeworkList} from '../lib/fetchGroupHomeworkList'
 
 export function* initEffect(): Effect {
   while (true) {
@@ -29,9 +27,9 @@ export function* initEffect(): Effect {
       const user: User = yield select(state => sessionSelectors.getUser(state))
       if (user) {
         const homeworkList: ?Homework[] = yield call(fetchHomeworkList, user)
-        const workGroupList: ?WorkGroup[] = yield call(fetchWorkGroupList)
+        const groupHomeworkList: ?Homework[] = yield call(fetchGroupHomeworkList, user)
         yield put(homeworkActions.setHomeworkList(homeworkList))
-        yield put(homeworkActions.setWorkGroupList(workGroupList))
+        yield put(homeworkActions.setGroupHomeworkList(groupHomeworkList))
       }
     }
   }

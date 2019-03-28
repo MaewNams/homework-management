@@ -13,6 +13,7 @@ import {actions} from 'redux-router5'
 import {observerUser} from './observerUser'
 import {sessionActions} from '../actions'
 import {fetchHomeworkList} from '../../homework/lib/fetchHomeworkList'
+import {fetchGroupHomeworkList} from '../../homework/lib/fetchGroupHomeworkList'
 import {fetchGroupWorkList} from '../../groupWork/lib/fetchGroupWorkList'
 import {homeworkActions} from '../../homework/actions'
 import {groupWorkActions} from '../../groupWork/actions'
@@ -27,9 +28,11 @@ export function* watchUserEffect(): Effect {
       } else {
         yield put(sessionActions.setUser(user))
         const homeworkList = yield call(fetchHomeworkList, user)
-        const workGroupList = yield call(fetchGroupWorkList, user)
+        const groupHomeWorkList = yield call(fetchGroupHomeworkList, user)
+        const groupList = yield call(fetchGroupWorkList, user)
         yield put(homeworkActions.setHomeworkList(homeworkList))
-        yield put(groupWorkActions.setGroupWorkList(workGroupList))
+        yield put(homeworkActions.setGroupHomeworkList(groupHomeWorkList))
+        yield put(groupWorkActions.setGroupWorkList(groupList))
       }
     }
 }

@@ -47,6 +47,7 @@ type Props = {
   goToGroupWork: Function,
   groupWorkList: ?GroupWork[],
   homeworkList: ?Homework[],
+  groupHomeworkList: ?Homework[],
   navigateTo: Function,
   signOut: Function,
   user: ?User,
@@ -65,7 +66,13 @@ export class Home extends PureComponent<Props> {
   }
 
   render() {
-    const {homeworkList, groupWorkList, navigateTo, user, deleteHomework, goToGroupWork} = this.props
+    const {homeworkList, groupHomeworkList, groupWorkList, navigateTo, user, 
+      deleteHomework, goToGroupWork} = this.props
+    let allWorks
+    if (homeworkList && groupHomeworkList) {
+      allWorks = homeworkList.concat(groupHomeworkList)
+    }
+    console.log('allWorks', allWorks)
     return (
      <Container className="container is-fluid">
       <div className="media">
@@ -90,8 +97,8 @@ export class Home extends PureComponent<Props> {
             </a>
           </CreateButton>
           <div className="content">
-          { homeworkList && (
-            <HomeworkList deleteHomework={deleteHomework} homeWorkList={homeworkList} />
+          { allWorks && (
+            <HomeworkList deleteHomework={deleteHomework} homeWorkList={allWorks} />
           )}
           </div>
         </div>
@@ -105,6 +112,7 @@ export class Home extends PureComponent<Props> {
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
     homeworkList: homeworkSelectors.getHomeworkList(state),
+    groupHomeworkList: homeworkSelectors.getGroupHomeworkList(state),
     groupWorkList: groupWorkSelectors.getGroupWorkList(state),
     user: sessionSelectors.getUser(state),
   }
