@@ -2,11 +2,13 @@
 import type {ApplicationState} from '../../state/types'
 import type {
   Homework,
-  WorkGroup,
 } from '../../state/homework/types'
 import type {
   User
 } from '../../state/session/types'
+import type {
+  GroupWork
+} from '../../state/groupWork/types'
 
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
@@ -15,6 +17,7 @@ import styled from 'styled-components'
 
 import {sessionActions} from '../../state/session/actions'
 import {sessionSelectors} from '../../state/session/selectors'
+import {groupWorkSelectors} from '../../state/groupWork/selectors'
 import {homeworkSelectors} from '../../state/homework/selectors'
 import {homeworkActions} from '../../state/homework/actions'
 import {
@@ -41,7 +44,7 @@ const UserInfo = styled.h5`
 type Props = {
   deleteHomework: Function,
   homeworkList: ?Homework[],
-  workGroupList: ?WorkGroup[],
+  groupWorkList: ?GroupWork[],
   navigateTo: Function,
   signOut: Function,
   user: ?User,
@@ -60,7 +63,7 @@ export class Home extends PureComponent<Props> {
   }
 
   render() {
-    const {homeworkList, workGroupList, navigateTo, user, deleteHomework} = this.props
+    const {homeworkList, groupWorkList, navigateTo, user, deleteHomework} = this.props
     return (
      <Container className="container is-fluid">
       <div className="media">
@@ -73,7 +76,7 @@ export class Home extends PureComponent<Props> {
           <SignOutButton onClick={this.handleSignOut} className="button is-danger is-outlined is-fullwidth">
             ออกจากระบบ
           </SignOutButton>
-          <GroupWorkPanel workGroupList={workGroupList} />
+          <GroupWorkPanel groupWorkList={groupWorkList} />
         </div>
         <div className="media-content">
           <HomeworkStatistic />
@@ -100,7 +103,7 @@ export class Home extends PureComponent<Props> {
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
     homeworkList: homeworkSelectors.getHomeworkList(state),
-    workGroupList: homeworkSelectors.getWorkGroupList(state),
+    groupWorkList: groupWorkSelectors.getGroupWorkList(state),
     user: sessionSelectors.getUser(state),
   }
 }
