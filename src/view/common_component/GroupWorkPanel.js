@@ -35,7 +35,7 @@ class GroupWorkPanel extends PureComponent<Props> {
         { groupWorkList && (
           groupWorkList.map((group, i) => {
             return (
-              <GroupContainer key={i} className="panel-block" onClick={() => goToGroupWork(group.id, group.groupHomeworks)}>
+              <GroupContainer key={i} className="panel-block" onClick={() => goToGroupWork(group.id)}>
               {group.name}
               <Span className="tag is-danger">({group.groupHomeworks.length})</Span>
             </GroupContainer>
