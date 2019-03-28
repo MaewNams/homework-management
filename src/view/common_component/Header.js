@@ -22,8 +22,8 @@ export class Header extends PureComponent<Props> {
         <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
             <div className="navbar-start">
               <a onClick={() => navigateTo('home')} className="navbar-item">
-                <span class="icon">
-                  <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                <span className="icon">
+                  <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
                 </span>
                 <span>
                   SQUARE BOX
