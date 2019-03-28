@@ -39,6 +39,7 @@ const UserInfo = styled.h5`
 `
 
 type Props = {
+  id: string,
   deleteHomework: Function,
   groupHomeworkList: ?Homework[],
   groupWorkList: ?GroupWorkType[],
@@ -49,8 +50,16 @@ type Props = {
 
 export class GroupWork extends PureComponent<Props> {
 
-  handleGoToCreateHomework = (navigateTo: Function):void => {
-    navigateTo('create-homework')
+  handleGoToHome = ():void => {
+    const {navigateTo} = this.props
+    navigateTo('home')
+  }
+
+  handleGoToCreateHomework = ():void => {
+    const {navigateTo, id} = this.props
+    navigateTo('create-group-homework',  {
+      id: id
+    })
   }
 
   handleSignOut = (e:any):void => {
@@ -60,26 +69,22 @@ export class GroupWork extends PureComponent<Props> {
   }
 
   render() {
-    const {groupHomeworkList, groupWorkList, navigateTo, user, deleteHomework} = this.props
+    const {groupHomeworkList, groupWorkList, user, deleteHomework} = this.props
     return (
       <Container className="container is-fluid">
-      group
-        {/* <div className="media">
+        <div className="media">
           <div className="media-left">
-            {user && (
-              <UserInfo className="subtitle is-5">
-                <i className="fa fa-user"></i> {user.email}
-              </UserInfo>
-            )}
-            <SignOutButton onClick={this.handleSignOut} className="button is-danger is-outlined is-fullwidth">
-              ออกจากระบบ
+            <SignOutButton onClick={this.handleGoToHome} 
+              className="button is-danger is-outlined is-fullwidth"
+            >
+              กลับสู่หน้าหลัก
             </SignOutButton>
-            <GroupWorkPanel groupWorkList={groupWorkList} />
+          <GroupWorkPanel groupWorkList={groupWorkList} goToGroupWork={{}} />
           </div>
           <div className="media-content">
             <CreateButton>
               <a className="button is-primary" 
-                onClick={() => this.handleGoToCreateHomework(navigateTo)}
+                onClick={this.handleGoToCreateHomework}
               >
                 สร้างการบ้านใหม่
               </a>
@@ -90,7 +95,7 @@ export class GroupWork extends PureComponent<Props> {
             )}
             </div>
           </div>
-        </div> */}
+        </div>
       </Container>
     )
   }
@@ -99,7 +104,7 @@ export class GroupWork extends PureComponent<Props> {
 
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
-    groupHomeworkList: homeworkSelectors.getHomeworkList(state),
+    groupHomeworkList: groupWorkSelectors.getGroupHomeworkList(state),
     groupWorkList: groupWorkSelectors.getGroupWorkList(state),
     user: sessionSelectors.getUser(state),
   }
