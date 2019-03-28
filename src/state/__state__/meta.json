@@ -99,6 +99,14 @@
           "name": "getUser"
         }
       }
+    },
+    "groupWork": {
+      "name": "groupWork",
+      "flowType": "GroupworkState",
+      "actions": {},
+      "channels": {},
+      "effects": {},
+      "reducers": {}
     }
   }
 }

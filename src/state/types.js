@@ -5,6 +5,7 @@
 
 import type {HomeworkState} from './homework/types'
 import type {SessionState} from './session/types'
+import type {GroupworkState} from './groupWork/types'
 
 export type Action<P> = {
   type: string,
@@ -18,4 +19,5 @@ export type Effect = Generator<any, any, any>
 export type ApplicationState = {
   homework: HomeworkState,
   session: SessionState,
+  groupWork: GroupworkState,
 }
