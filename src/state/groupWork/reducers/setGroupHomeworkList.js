@@ -8,5 +8,6 @@ export function setGroupHomeworkListReducer(state: GroupworkState, action: Actio
 
   return {
     ...state,
+    groupHomeworkList: action.payload.groupHomeworkList
   }
 }

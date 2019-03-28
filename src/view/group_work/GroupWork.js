@@ -63,7 +63,8 @@ export class GroupWork extends PureComponent<Props> {
     const {groupHomeworkList, groupWorkList, navigateTo, user, deleteHomework} = this.props
     return (
       <Container className="container is-fluid">
-        <div className="media">
+      group
+        {/* <div className="media">
           <div className="media-left">
             {user && (
               <UserInfo className="subtitle is-5">
@@ -89,7 +90,7 @@ export class GroupWork extends PureComponent<Props> {
             )}
             </div>
           </div>
-        </div>
+        </div> */}
       </Container>
     )
   }

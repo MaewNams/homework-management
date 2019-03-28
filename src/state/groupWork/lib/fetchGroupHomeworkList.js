@@ -11,6 +11,6 @@ export async function fetchGroupHomeworkList(homeworkIds: string[]): Promise<?Ho
     const data = groupSnapShot.data()
     groupHomeworkList.push(data)
   }
-
+  console.log('groupHomeworkList', groupHomeworkList)
   return groupHomeworkList
 }

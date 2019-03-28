@@ -132,6 +132,9 @@
       "selectors": {
         "getGroupWorkList": {
           "name": "getGroupWorkList"
+        },
+        "getGroupHomeworkList": {
+          "name": "getGroupHomeworkList"
         }
       }
     }
