@@ -113,7 +113,12 @@
       },
       "channels": {},
       "effects": {},
-      "reducers": {}
+      "reducers": {},
+      "selectors": {
+        "getGroupWorkList": {
+          "name": "getGroupWorkList"
+        }
+      }
     }
   }
 }
