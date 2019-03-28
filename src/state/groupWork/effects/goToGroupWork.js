@@ -19,7 +19,7 @@ export function* goToGroupWorkEffect(): Effect {
     try {
       yield put(groupWorkActions.setGroupHomeworkList(groupHomeworkList))
       yield put(actions.navigateTo('group', {
-        groupId: groupId
+        id: groupId
       }))
     }
     catch(error){
