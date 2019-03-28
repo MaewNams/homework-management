@@ -3,7 +3,7 @@
 export type GroupWork = {
   id: string,
   name: string,
-  homeworks: string[]
+  groupHomeworks: string[]
 }
 
 export type GroupworkState = {
