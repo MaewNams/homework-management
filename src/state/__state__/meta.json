@@ -134,6 +134,9 @@
         },
         "createGroupHomework": {
           "name": "createGroupHomework"
+        },
+        "init": {
+          "name": "init"
         }
       },
       "reducers": {},
