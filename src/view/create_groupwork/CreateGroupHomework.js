@@ -11,7 +11,7 @@ import {connect} from 'react-redux'
 import {actions} from 'redux-router5'
 import "react-datepicker/dist/react-datepicker.css"
 
-import {homeworkActions} from '../../state/homework/actions'
+import {groupWorkActions} from '../../state/groupWork/actions'
 
 const Container = styled.div`
   padding: 1rem;
@@ -24,6 +24,7 @@ const BottomMenu = styled.div`
   padding-bottom: 1rem;
 `
 type Props = {
+group: string,
  createHomeWork: Function,
  navigateTo: Function,
 }
@@ -121,7 +122,7 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 }
 
 const withStore = connect(mapStateToProps, {
-  createHomeWork: homeworkActions.createHomework,
+  createHomeWork: groupWorkActions.createGroupHomework,
   navigateTo: actions.navigateTo
 })
 
