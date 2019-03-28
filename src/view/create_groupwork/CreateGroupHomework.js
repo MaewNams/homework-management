@@ -24,9 +24,10 @@ const BottomMenu = styled.div`
   padding-bottom: 1rem;
 `
 type Props = {
-group: string,
- createHomeWork: Function,
- navigateTo: Function,
+  id: string,
+  group: string,
+  createHomeWork: Function,
+  navigateTo: Function,
 }
 
 type State = {
@@ -58,9 +59,9 @@ class CreateGroupHomework extends Component<Props, State> {
   handleCreateHomework = (e: any):void => {
     e.preventDefault()
     const {subject, detail, submitDate} = this.state
-    const {createHomeWork} = this.props 
+    const {id, createHomeWork} = this.props 
     const date = moment(submitDate).locale('th').format("D MMMM YYYY")
-    createHomeWork(subject, detail, date)
+    createHomeWork(id, subject, detail, date)
   }
     
   render() {
