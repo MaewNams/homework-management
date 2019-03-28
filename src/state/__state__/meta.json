@@ -114,6 +114,12 @@
           "name": "goToGroupWork",
           "flowType": "GoToGroupWork",
           "id": "groupWork/GO_TO_GROUP_WORK"
+        },
+        "setGroupHomeworkList": {
+          "name": "setGroupHomeworkList",
+          "flowType": "SetGroupHomeworkList",
+          "id": "groupWork/SET_GROUP_HOMEWORK_LIST",
+          "reducer": true
         }
       },
       "channels": {},

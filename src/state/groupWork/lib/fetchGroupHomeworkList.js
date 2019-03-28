@@ -1,6 +1,5 @@
 // @flow
 import type {Homework} from '../../homework/types'
-import type {User} from '../../session/types'
 
 import {db} from '../../../firebase'
 
