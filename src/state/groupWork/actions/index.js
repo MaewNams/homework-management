@@ -4,7 +4,9 @@
 // @flow
 
 import {setGroupWorkList} from './setGroupWorkList'
+import {goToGroupWork} from './goToGroupWork'
 
 export const groupWorkActions = {
   setGroupWorkList,
+  goToGroupWork,
 }

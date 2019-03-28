@@ -109,10 +109,19 @@
           "flowType": "SetGroupWorkList",
           "id": "groupWork/SET_GROUP_WORK_LIST",
           "reducer": true
+        },
+        "goToGroupWork": {
+          "name": "goToGroupWork",
+          "flowType": "GoToGroupWork",
+          "id": "groupWork/GO_TO_GROUP_WORK"
         }
       },
       "channels": {},
-      "effects": {},
+      "effects": {
+        "goToGroupWork": {
+          "name": "goToGroupWork"
+        }
+      },
       "reducers": {},
       "selectors": {
         "getGroupWorkList": {

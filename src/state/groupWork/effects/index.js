@@ -3,6 +3,8 @@
 
 // @flow
 
+import {goToGroupWorkEffect} from './goToGroupWork'
 
 export const groupWorkEffects = [
+  goToGroupWorkEffect,
 ]
