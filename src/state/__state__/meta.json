@@ -120,12 +120,20 @@
           "flowType": "SetGroupHomeworkList",
           "id": "groupWork/SET_GROUP_HOMEWORK_LIST",
           "reducer": true
+        },
+        "createGroupHomework": {
+          "name": "createGroupHomework",
+          "flowType": "CreateGroupHomework",
+          "id": "groupWork/CREATE_GROUP_HOMEWORK"
         }
       },
       "channels": {},
       "effects": {
         "goToGroupWork": {
           "name": "goToGroupWork"
+        },
+        "createGroupHomework": {
+          "name": "createGroupHomework"
         }
       },
       "reducers": {},

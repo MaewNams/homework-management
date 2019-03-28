@@ -4,7 +4,9 @@
 // @flow
 
 import {goToGroupWorkEffect} from './goToGroupWork'
+import {createGroupHomeworkEffect} from './createGroupHomework'
 
 export const groupWorkEffects = [
   goToGroupWorkEffect,
+  createGroupHomeworkEffect,
 ]
