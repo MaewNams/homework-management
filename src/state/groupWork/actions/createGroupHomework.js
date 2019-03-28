@@ -2,6 +2,7 @@
 import type {Action} from '../../../state/types'
 
 export type CreateGroupHomeworkPayload = {
+  groupId: string,
   subject: string,
   detail: string,
   date: string,
@@ -9,9 +10,10 @@ export type CreateGroupHomeworkPayload = {
 
 const id = 'groupWork/CREATE_GROUP_HOMEWORK'
 
-export const createGroupHomework = (subject: string, detail: string, date: string): Action<CreateGroupHomeworkPayload> => ({
+export const createGroupHomework = (groupId: string, subject: string, detail: string, date: string): Action<CreateGroupHomeworkPayload> => ({
   type: id,
   payload: {
+    groupId,
     subject,
     detail,
     date,
