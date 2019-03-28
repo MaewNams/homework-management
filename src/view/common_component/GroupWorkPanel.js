@@ -16,12 +16,14 @@ const Span = styled.span`
   padding-left: 0.5rem;
 `
 type Props = {
-  groupWorkList: ?GroupWork[]
+  groupWorkList: ?GroupWork[],
+  goToGroupWork: Function,
 }
 
 class GroupWorkPanel extends PureComponent<Props> {
+
   render() {
-    const {groupWorkList} = this.props
+    const {groupWorkList, goToGroupWork} = this.props
     return (
       <nav className="panel">
         <div className="panel-block">
@@ -33,7 +35,7 @@ class GroupWorkPanel extends PureComponent<Props> {
         { groupWorkList && (
           groupWorkList.map((group, i) => {
             return (
-              <GroupContainer key={i} className="panel-block">
+              <GroupContainer key={i} className="panel-block" onClick={() => goToGroupWork(group.id)}>
               {group.name}
               <Span className="tag is-danger">({group.groupHomeworks.length})</Span>
             </GroupContainer>
