@@ -53,7 +53,7 @@ class SignIn extends Component<Props, State> {
     const {navigateTo} = this.props
     const values = this.state
     return (
-      <FormContainer>
+      <FormContainer className="container is-fluid">
         <div className="field">
           <label className="label">Email</label>
           <div className="control">
@@ -63,14 +63,13 @@ class SignIn extends Component<Props, State> {
               placeholder="Email input" value={values.email}
             />
           </div>
-          <p className="help is-danger">This email is invalid</p>
         </div>
 
         <div className="field">
           <label className="label">Password</label>
           <div className="control">
             <input className="input" type="password" 
-            name="password" placeholder="Text input" 
+            name="password" placeholder="******" 
             value={values.password} 
             onChange= {this.handleChange}
           />
@@ -84,9 +83,6 @@ class SignIn extends Component<Props, State> {
           <div className="control">
             <button onClick={() => navigateTo('sign-up')} className="button is-primary">สมัครสมาชิก</button>
           </div>
-          <div className="control">
-            <button className="button is-text">ยกเลิก</button>
-          </div> 
         </div>
       </FormContainer>
     )

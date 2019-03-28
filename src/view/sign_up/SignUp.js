@@ -4,6 +4,7 @@ import type {ApplicationState} from '../../state/types'
 import React, {Component } from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
+import {actions} from 'redux-router5'
 
 import {sessionActions} from '../../state/session/actions'
 
@@ -19,6 +20,7 @@ const BottomMenu = styled.div`
 `
 type Props = {
   signUp: Function,
+  navigateTo: Function,
 }
 
 type State = {
@@ -42,19 +44,17 @@ class SignUp extends Component<Props, State> {
   }
 
   handleSignUp = (e:any):void => {
-    console.log('in handleSignUp')
     e.preventDefault()
     const {signUp} = this.props
     const {email, password} = this.state
-    console.log('email pass', email, password)
     signUp(email, password)
   }
     
   render() {
-    const {} = this.props
+    const {navigateTo} = this.props
     const values = this.state
     return (
-      <FormContainer>
+      <FormContainer className="container is-fluid">
         <div className="field">
           <label className="label">Email</label>
           <div className="control has-icons-left has-icons-right">
@@ -74,7 +74,7 @@ class SignUp extends Component<Props, State> {
           <label className="label">Password</label>
           <div className="control">
             <input className="input" type="password" 
-            name="password" placeholder="Text input" 
+            name="password" placeholder="******" 
             value={values.password} 
             onChange={this.handleChange}
           />
@@ -85,7 +85,7 @@ class SignUp extends Component<Props, State> {
           <label className="label">Re-password</label>
           <div className="control">
             <input className="input" type="password" 
-            name="rePassword" placeholder="Text input" 
+            name="rePassword" placeholder="******" 
             value={values.rePassword} 
             onChange= {this.handleChange}
           />
@@ -97,7 +97,7 @@ class SignUp extends Component<Props, State> {
             <button onClick={this.handleSignUp} className="button is-primary">สมัครสมาชิก</button>
           </div>
           <div className="control">
-            <button className="button is-text">ยกเลิก</button>
+            <button onClick={() => navigateTo('sign-in')} className="button is-text">กลับไปหน้าเข้าสู่ระบบ</button>
           </div> 
         </div>
       </FormContainer>
@@ -113,6 +113,7 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 
 const withStore = connect(mapStateToProps, {
   signUp: sessionActions.signUp, 
+  navigateTo: actions.navigateTo,
 })
 
 export default withStore(SignUp)
