@@ -23,6 +23,7 @@ const routes = [
   createRoute('home', '/home'),
   createRoute('create-homework', '/create-homework'),
   createRoute('group', '/group?id'),
+  createRoute('create-group-homework', '/group?id/create-group-homework'),
   createRoute('sign-in', '/sign-in'),
   createRoute('sign-up', '/sign-up'),
 ]

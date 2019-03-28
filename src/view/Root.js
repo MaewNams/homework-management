@@ -8,6 +8,9 @@ import {startsWithSegment} from 'router5-helpers'
 import {compose, withProps} from 'recompose'
 
 import {CreateHomework} from './create_homework'
+import {
+  CreateGroupHomework,
+} from './create_groupwork'
 import {GroupWork} from './group_work'
 import {Header} from './common_component'
 import {Home} from './home'
@@ -47,7 +50,10 @@ const enhance = compose(
     return {view: <SignUp />}
     } else if (test('group')) {
       const id = props.route.params.id
-    return {view: <GroupWork id={id} /> }
+      return {view: <GroupWork id={id} /> }
+    } else if (test('create-group-homework')) {
+      const id = props.route.params.id
+      return {view: <CreateGroupHomework id={id} /> }
     } else if (test('create-homework')) {
       return {view: <CreateHomework />}
     } else {
