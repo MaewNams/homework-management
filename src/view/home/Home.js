@@ -17,6 +17,7 @@ import styled from 'styled-components'
 
 import {sessionActions} from '../../state/session/actions'
 import {sessionSelectors} from '../../state/session/selectors'
+import {groupWorkActions} from '../../state/groupWork/actions'
 import {groupWorkSelectors} from '../../state/groupWork/selectors'
 import {homeworkSelectors} from '../../state/homework/selectors'
 import {homeworkActions} from '../../state/homework/actions'
@@ -43,8 +44,9 @@ const UserInfo = styled.h5`
 
 type Props = {
   deleteHomework: Function,
-  homeworkList: ?Homework[],
+  goToGroupWork: Function,
   groupWorkList: ?GroupWork[],
+  homeworkList: ?Homework[],
   navigateTo: Function,
   signOut: Function,
   user: ?User,
@@ -63,7 +65,7 @@ export class Home extends PureComponent<Props> {
   }
 
   render() {
-    const {homeworkList, groupWorkList, navigateTo, user, deleteHomework} = this.props
+    const {homeworkList, groupWorkList, navigateTo, user, deleteHomework, goToGroupWork} = this.props
     return (
      <Container className="container is-fluid">
       <div className="media">
@@ -76,7 +78,7 @@ export class Home extends PureComponent<Props> {
           <SignOutButton onClick={this.handleSignOut} className="button is-danger is-outlined is-fullwidth">
             ออกจากระบบ
           </SignOutButton>
-          <GroupWorkPanel groupWorkList={groupWorkList} />
+          <GroupWorkPanel groupWorkList={groupWorkList} goToGroupWork={goToGroupWork} />
         </div>
         <div className="media-content">
           <HomeworkStatistic />
@@ -109,9 +111,10 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 }
 
 const withStore = connect(mapStateToProps, {
+  deleteHomework: homeworkActions.deleteHomework,
+  goToGroupWork: groupWorkActions.goToGroupWork,
   navigateTo: actions.navigateTo,
   signOut: sessionActions.signOut,
-  deleteHomework: homeworkActions.deleteHomework
 })
 
 export default withStore(Home)
