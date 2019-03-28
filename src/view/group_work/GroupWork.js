@@ -21,7 +21,7 @@ import {groupWorkSelectors} from '../../state/groupWork/selectors'
 import {homeworkSelectors} from '../../state/homework/selectors'
 import {homeworkActions} from '../../state/homework/actions'
 import {GroupHomeworkList} from './GroupHomeworkList'
-import {GroupWorkPanel} from '../common_component'
+import {GroupMemberPanel} from '../common_component'
 
 const Container = styled.div`
   padding: 1rem;
@@ -70,6 +70,7 @@ export class GroupWork extends PureComponent<Props> {
 
   render() {
     const {groupHomeworkList, groupWorkList, user, deleteHomework} = this.props
+    const workLeft = groupHomeworkList ? groupHomeworkList.length : 0
     return (
       <Container className="container is-fluid">
         <div className="media">
@@ -79,14 +80,34 @@ export class GroupWork extends PureComponent<Props> {
             >
               กลับสู่หน้าหลัก
             </SignOutButton>
-          <GroupWorkPanel groupWorkList={groupWorkList} goToGroupWork={{}} />
+          <GroupMemberPanel groupWorkList={groupWorkList} goToGroupWork={{}} />
           </div>
           <div className="media-content">
+          <nav className="level">
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">จำนวนสมาชิก</p>
+                  <p className="title">1</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">กลุ่ม</p>
+                  <p className="title">โครงงานคอมพิวเตอร์</p>
+                </div>
+              </div>
+              <div className="level-item has-text-centered">
+                <div>
+                  <p className="heading">งานค้าง</p>
+                  <p className="title">{workLeft}</p>
+                </div>
+              </div>
+            </nav>
             <CreateButton>
               <a className="button is-primary" 
                 onClick={this.handleGoToCreateHomework}
               >
-                สร้างการบ้านใหม่
+                สร้างงานใหม่
               </a>
             </CreateButton>
             <div className="content">
