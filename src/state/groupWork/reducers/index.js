@@ -6,10 +6,13 @@
 import type {Action} from '../../types'
 import type {GroupworkState} from '../types'
 
+import {setGroupWorkListReducer} from './setGroupWorkList'
 import {initialState} from './initialState'
 
 export const groupWorkReducer = (state: GroupworkState = initialState, action: Action<any>): GroupworkState => {
   switch (action.type) {
+    case 'groupWork/SET_GROUP_WORK_LIST':
+      return setGroupWorkListReducer(state, action)
     default:
       return state
   }

@@ -3,6 +3,8 @@
 
 // @flow
 
+import {setGroupWorkList} from './setGroupWorkList'
 
 export const groupWorkActions = {
+  setGroupWorkList,
 }

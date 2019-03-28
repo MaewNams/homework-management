@@ -103,7 +103,14 @@
     "groupWork": {
       "name": "groupWork",
       "flowType": "GroupworkState",
-      "actions": {},
+      "actions": {
+        "setGroupWorkList": {
+          "name": "setGroupWorkList",
+          "flowType": "SetGroupWorkList",
+          "id": "groupWork/SET_GROUP_WORK_LIST",
+          "reducer": true
+        }
+      },
       "channels": {},
       "effects": {},
       "reducers": {}
