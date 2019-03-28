@@ -72,7 +72,9 @@ export class Home extends PureComponent<Props> {
     if (homeworkList && groupHomeworkList) {
       allWorks = homeworkList.concat(groupHomeworkList)
     }
-    console.log('allWorks', allWorks)
+    const allWorksAmount = allWorks? allWorks.length : 0
+    const groupWorkAmount = groupHomeworkList? groupHomeworkList.length : 0
+    const myWorkAmount = homeworkList? homeworkList.length : 0
     return (
      <Container className="container is-fluid">
       <div className="media">
@@ -88,7 +90,11 @@ export class Home extends PureComponent<Props> {
           <GroupWorkPanel groupWorkList={groupWorkList} goToGroupWork={goToGroupWork} />
         </div>
         <div className="media-content">
-          <HomeworkStatistic />
+          <HomeworkStatistic 
+            allWorksAmount={allWorksAmount} 
+            myWorkAmount={myWorkAmount} 
+            groupWorkAmount={groupWorkAmount} 
+          />
           <CreateButton>
             <a className="button is-primary" 
               onClick={() => this.handleGoToCreateHomework(navigateTo)}
