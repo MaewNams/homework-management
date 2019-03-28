@@ -8,5 +8,6 @@ export function setGroupWorkListReducer(state: GroupworkState, action: Action<Se
 
   return {
     ...state,
+    groupWorkList: action.payload.groupWorkList
   }
 }
