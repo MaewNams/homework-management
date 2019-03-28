@@ -13,8 +13,9 @@ import {actions} from 'redux-router5'
 import {observerUser} from './observerUser'
 import {sessionActions} from '../actions'
 import {fetchHomeworkList} from '../../homework/lib/fetchHomeworkList'
-import {fetchWorkGroupList} from '../../homework/lib//fetchWorkGroupList'
+import {fetchGroupWorkList} from '../../groupWork/lib/fetchGroupWorkList'
 import {homeworkActions} from '../../homework/actions'
+import {groupWorkActions} from '../../groupWork/actions'
 
 export function* watchUserEffect(): Effect {
   const channel = yield call(observerUser)
@@ -25,10 +26,10 @@ export function* watchUserEffect(): Effect {
         yield put(sessionActions.setUser(null))
       } else {
         yield put(sessionActions.setUser(user))
-        const workGroupList = yield call(fetchWorkGroupList)
         const homeworkList = yield call(fetchHomeworkList, user)
-        yield put(homeworkActions.setWorkGroupList(workGroupList))
+        const workGroupList = yield call(fetchGroupWorkList, user)
         yield put(homeworkActions.setHomeworkList(homeworkList))
+        yield put(groupWorkActions.setGroupWorkList(workGroupList))
       }
     }
 }
