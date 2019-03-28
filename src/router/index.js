@@ -22,7 +22,7 @@ const routes = [
   createRoute('init', '/init'),
   createRoute('home', '/home'),
   createRoute('create-homework', '/create-homework'),
-  createRoute('group', '/group/:id'),
+  createRoute('group', '/group?id'),
   createRoute('sign-in', '/sign-in'),
   createRoute('sign-up', '/sign-up'),
 ]
