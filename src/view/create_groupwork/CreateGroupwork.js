@@ -33,7 +33,7 @@ type State = {
   submitDate: any,
 }
 
-class CreateHomework extends Component<Props, State> {
+class CreateGroupWork extends Component<Props, State> {
 
   state = {
     detail: '',
@@ -124,4 +124,4 @@ const withStore = connect(mapStateToProps, {
   navigateTo: actions.navigateTo
 })
 
-export default withStore(CreateHomework)
+export default withStore(CreateGroupWork)
