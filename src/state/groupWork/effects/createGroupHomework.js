@@ -12,7 +12,7 @@ import {actions} from 'redux-router5'
 
 import {groupWorkActions} from '../actions'
 import {sessionSelectors} from '../../session/selectors'
-import {saveGroupHomeworkToFireStore} from '../lib/saveGroupHomeworkToFireStore'
+import {saveGroupHomeworkToFirestore} from '../lib/saveGroupHomeworkToFirestore'
 import {generateHomeworkId} from '../../homework/lib/generateHomeworkId'
 
 export function* createGroupHomeworkEffect(): Effect {
@@ -21,7 +21,7 @@ export function* createGroupHomeworkEffect(): Effect {
     const user: User = yield select(state => sessionSelectors.getUser(state))
     const homeworkId: string = yield call(generateHomeworkId)
     try {
-      yield call(saveGroupHomeworkToFireStore,groupId, homeworkId, subject, detail, date, user)
+      yield call(saveGroupHomeworkToFirestore,groupId, homeworkId, subject, detail, date, user)
       yield put(actions.navigateTo('group', {
         id: groupId
       }))

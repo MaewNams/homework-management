@@ -6,7 +6,7 @@ import {
   db,
 } from '../../../firebase'
 
-export async function saveGroupHomeworkToFireStore(groupId: string, id: string, subject: string, detail: string, date: string, user: User): Promise<any> {
+export async function saveGroupHomeworkToFirestore(groupId: string, id: string, subject: string, detail: string, date: string, user: User): Promise<any> {
   const homework = {
     id: id,
     owner: user.uid,

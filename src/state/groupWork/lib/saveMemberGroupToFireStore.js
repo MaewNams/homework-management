@@ -6,7 +6,7 @@ import {
   db,
 } from '../../../firebase'
 
-export const saveMemberGroupToFireStore = async (groupId: string, status: string, user: User): Promise<any> => {
+export const saveMemberGroupToFirestore = async (groupId: string, status: string, user: User): Promise<any> => {
   const newMember = {
     [user.uid]: status
   }
