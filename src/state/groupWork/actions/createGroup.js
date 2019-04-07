@@ -2,15 +2,17 @@
 import type {Action} from '../../../state/types'
 
 export type CreateGroupPayload = {
-  // TODO: Add payload content
+  name: string,
+  detail: string,
 }
 
 const id = 'groupWork/CREATE_GROUP'
 
-export const createGroup = (): Action<CreateGroupPayload> => ({
+export const createGroup = (name: string, detail: string): Action<CreateGroupPayload> => ({
   type: id,
   payload: {
-    // TODO: Add payload content
+    name,
+    detail,
   }
 })
 
