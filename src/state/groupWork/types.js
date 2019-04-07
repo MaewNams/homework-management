@@ -4,7 +4,9 @@ import type {Homework} from '../homework/types'
 export type GroupWork = {
   id: string,
   name: string,
-  groupHomeworks: string[]
+  detail: string,
+  groupHomeworks: string[],
+  members: [],
 }
 
 export type GroupworkState = {
