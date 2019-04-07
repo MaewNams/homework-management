@@ -87,7 +87,11 @@ export class Home extends PureComponent<Props> {
           <SignOutButton onClick={this.handleSignOut} className="button is-danger is-outlined is-fullwidth">
             ออกจากระบบ
           </SignOutButton>
-          <GroupWorkPanel groupWorkList={groupWorkList} goToGroupWork={goToGroupWork} />
+          <GroupWorkPanel 
+            groupWorkList={groupWorkList} 
+            goToGroupWork={goToGroupWork} 
+            navigateTo={navigateTo} 
+          />
         </div>
         <div className="media-content">
           <HomeworkStatistic 
