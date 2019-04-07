@@ -126,11 +126,6 @@
           "flowType": "CreateGroupHomework",
           "id": "groupWork/CREATE_GROUP_HOMEWORK"
         },
-        "deleteGroupHomework": {
-          "name": "deleteGroupHomework",
-          "flowType": "DeleteGroupHomework",
-          "id": "groupWork/DELETE_GROUP_HOMEWORK"
-        },
         "createGroup": {
           "name": "createGroup",
           "flowType": "CreateGroup",
