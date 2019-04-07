@@ -6,18 +6,16 @@ import {
   db,
 } from '../../../firebase'
 
-export const saveGroupToFirestore = async (id: string, name: string, detail: string, date: string, user: User): Promise<any> => {
-  const owner = {
-    uid: '0Wb9USVtIpX7L7cptj0vYoUh68C2',
-    level: 'owner'
-  }
-  const homework = {
+export const saveGroupToFirestore = async (id: string, name: string, detail: string, user: User): Promise<any> => {
+  const groupWork = {
     id: id,
-    members: {owner},
+    owner: user.uid,
+    members: [user.email],
     name: name,
     detail: detail,
+    groupHomeworks: []
   }
- db.collection('groupWorks').doc(id).set(homework)
+ db.collection('groupWorks').doc(id).set(groupWork)
 
 }
 
