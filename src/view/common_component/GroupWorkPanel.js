@@ -18,12 +18,17 @@ const Span = styled.span`
 type Props = {
   groupWorkList: ?GroupWork[],
   goToGroupWork: Function,
+  navigateTo: Function,
 }
 
 class GroupWorkPanel extends PureComponent<Props> {
 
+  handleGoToCreateGroup = (navigateTo: Function):void => {
+    navigateTo('create-group')
+  }
+
   render() {
-    const {groupWorkList, goToGroupWork} = this.props
+    const {groupWorkList, goToGroupWork, navigateTo} = this.props
     return (
       <nav className="panel">
         <div className="panel-block">
@@ -44,7 +49,9 @@ class GroupWorkPanel extends PureComponent<Props> {
         )}
 
         <div className="panel-block">
-          <button className="button is-link is-outlined is-fullwidth">
+          <button className="button is-link is-outlined is-fullwidth"
+            onClick={() => this.handleGoToCreateGroup(navigateTo)}
+          >
             สร้างกลุ่มงาน
           </button>
         </div>
