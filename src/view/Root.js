@@ -9,6 +9,7 @@ import {compose, withProps} from 'recompose'
 
 import {CreateHomework} from './create_homework'
 import {
+  CreateGroupWork,
   CreateGroupHomework,
 } from './create_groupwork'
 import {GroupWork} from './group_work'
@@ -51,6 +52,8 @@ const enhance = compose(
     } else if (test('group')) {
       const id = props.route.params.id
       return {view: <GroupWork id={id} /> }
+    } else if (test('create-group')) {
+      return {view: <CreateGroupWork />}
     } else if (test('create-group-homework')) {
       const id = props.route.params.id
       return {view: <CreateGroupHomework id={id} /> }
