@@ -6,7 +6,7 @@ export type GroupWork = {
   name: string,
   detail: string,
   groupHomeworks: string[],
-  members: [],
+  members: string[],
 }
 
 export type GroupworkState = {
