@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 import {actions} from 'redux-router5'
 import "react-datepicker/dist/react-datepicker.css"
 
-import {homeworkActions} from '../../state/homework/actions'
+import {groupWorkActions} from '../../state/groupWork/actions'
 
 const Container = styled.div`
   padding: 1rem;
@@ -21,7 +21,7 @@ const BottomMenu = styled.div`
   padding-bottom: 1rem;
 `
 type Props = {
- createHomeWork: Function,
+ createGroup: Function,
  navigateTo: Function,
 }
 
@@ -46,9 +46,8 @@ class CreateGroupWork extends Component<Props, State> {
   handleCreateHomework = (e: any):void => {
     e.preventDefault()
     const {name, detail} = this.state
-    // const {createHomeWork} = this.props 
-    // const date = moment(submitDate).locale('th').format("D MMMM YYYY")
-    // createHomeWork(subject, detail, date)
+    const {createGroup} = this.props 
+    createGroup(name, detail)
   }
     
   render() {
@@ -101,7 +100,7 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 }
 
 const withStore = connect(mapStateToProps, {
-  createHomeWork: homeworkActions.createHomework,
+  createGroup: groupWorkActions.createGroup,
   navigateTo: actions.navigateTo
 })
 
