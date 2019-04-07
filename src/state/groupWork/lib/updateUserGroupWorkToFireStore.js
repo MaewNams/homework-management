@@ -11,7 +11,5 @@ export const updateUserGroupWorkToFireStore = async (groupId: string, user: User
   const oldData = snapshort.data()
   const userGroupWorks = [...oldData.Work, groupId]
   db.collection('userGroupWorks').doc(user.uid).set({groupWork: userGroupWorks}, {merge: true})
- 
-
 }
 
