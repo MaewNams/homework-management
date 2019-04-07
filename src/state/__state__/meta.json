@@ -135,6 +135,12 @@
           "name": "createGroup",
           "flowType": "CreateGroup",
           "id": "groupWork/CREATE_GROUP"
+        },
+        "setGroupWork": {
+          "name": "setGroupWork",
+          "flowType": "SetGroupWork",
+          "id": "groupWork/SET_GROUP_WORK",
+          "reducer": true
         }
       },
       "channels": {},
@@ -159,6 +165,9 @@
         },
         "getGroupHomeworkList": {
           "name": "getGroupHomeworkList"
+        },
+        "getGroupWork": {
+          "name": "getGroupWork"
         }
       }
     }

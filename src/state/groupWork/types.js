@@ -10,6 +10,7 @@ export type GroupWork = {
 }
 
 export type GroupworkState = {
+  groupWork: ?GroupWork,
   groupWorkList: ?GroupWork[],
   groupHomeworkList: ?Homework[],
 }

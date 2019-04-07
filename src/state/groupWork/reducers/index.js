@@ -8,6 +8,7 @@ import type {GroupworkState} from '../types'
 
 import {setGroupWorkListReducer} from './setGroupWorkList'
 import {setGroupHomeworkListReducer} from './setGroupHomeworkList'
+import {setGroupWorkReducer} from './setGroupWork'
 import {initialState} from './initialState'
 
 export const groupWorkReducer = (state: GroupworkState = initialState, action: Action<any>): GroupworkState => {
@@ -16,6 +17,8 @@ export const groupWorkReducer = (state: GroupworkState = initialState, action: A
       return setGroupWorkListReducer(state, action)
     case 'groupWork/SET_GROUP_HOMEWORK_LIST':
       return setGroupHomeworkListReducer(state, action)
+    case 'groupWork/SET_GROUP_WORK':
+      return setGroupWorkReducer(state, action)
     default:
       return state
   }

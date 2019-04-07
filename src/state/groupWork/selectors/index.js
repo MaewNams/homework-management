@@ -5,8 +5,10 @@
 
 import {getGroupWorkList} from './getGroupWorkList'
 import {getGroupHomeworkList} from './getGroupHomeworkList'
+import {getGroupWork} from './getGroupWork'
 
 export const groupWorkSelectors = {
   getGroupWorkList,
   getGroupHomeworkList,
+  getGroupWork,
 }
