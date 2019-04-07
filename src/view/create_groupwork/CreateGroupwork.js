@@ -4,8 +4,6 @@ import type {Homework} from '../../state/homework/types'
 
 import React, {Component } from 'react'
 import styled from 'styled-components'
-import DatePicker from 'react-datepicker'
-import moment from 'moment'
 import {connect} from 'react-redux'
 import {actions} from 'redux-router5'
 import "react-datepicker/dist/react-datepicker.css"
@@ -28,23 +26,15 @@ type Props = {
 }
 
 type State = {
+  name: string,
   detail: string,
-  subject: string,
-  submitDate: any,
 }
 
 class CreateGroupWork extends Component<Props, State> {
 
   state = {
+    name: '',
     detail: '',
-    subject: '',
-    submitDate: new Date(),
-  }
-
-  handleSelectDate = (date: any):void => {
-    this.setState({
-      submitDate: date ,
-    })
   }
 
   handleChange = (e: any):void => {
@@ -55,10 +45,10 @@ class CreateGroupWork extends Component<Props, State> {
 
   handleCreateHomework = (e: any):void => {
     e.preventDefault()
-    const {subject, detail, submitDate} = this.state
-    const {createHomeWork} = this.props 
-    const date = moment(submitDate).locale('th').format("D MMMM YYYY")
-    createHomeWork(subject, detail, date)
+    const {name, detail} = this.state
+    // const {createHomeWork} = this.props 
+    // const date = moment(submitDate).locale('th').format("D MMMM YYYY")
+    // createHomeWork(subject, detail, date)
   }
     
   render() {
@@ -66,22 +56,13 @@ class CreateGroupWork extends Component<Props, State> {
     const values = this.state
     return (
       <Container className="container is-fluid">
-        <div className="field">
-          <label className="label">กำหนดส่ง</label>
-          <div className="control">
-            <DatePicker className="input"
-              selected={this.state.submitDate}
-              onChange={this.handleSelectDate}
-            />
-          </div>
-        </div>
 
         <div className="field">
-          <label className="label">วิชา</label>
+          <label className="label">ชื่อกลุ่ม</label>
           <div className="control">
             <input className="input" type="text" 
-            name="subject" placeholder="Text input" 
-            value={values.subject} 
+            name="name" placeholder="Text input" 
+            value={values.name} 
             onChange= {this.handleChange}
           />
           </div>
