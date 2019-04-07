@@ -17,9 +17,9 @@ import {fetchGroupWork} from '../lib/fetchGroupWork'
 export function* goToGroupWorkEffect(): Effect {
   while (true) {
     const {payload: {groupId}} = yield take(groupWorkActions.goToGroupWork.id)
-    const groupHomeworkList: Homework[] = yield call(fetchGroupHomeworkList, groupId)
-    const groupWork: GroupWork = yield call(fetchGroupWork, groupId)
     try {
+      const groupHomeworkList: Homework[] = yield call(fetchGroupHomeworkList, groupId)
+      const groupWork: GroupWork = yield call(fetchGroupWork, groupId)
       yield put (groupWorkActions.setGroupWork(groupWork))
       yield put(groupWorkActions.setGroupHomeworkList(groupHomeworkList))
       yield put(actions.navigateTo('group', {
