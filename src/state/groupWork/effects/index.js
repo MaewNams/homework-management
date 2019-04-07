@@ -6,9 +6,11 @@
 import {goToGroupWorkEffect} from './goToGroupWork'
 import {createGroupHomeworkEffect} from './createGroupHomework'
 import {initEffect} from './init'
+import {createGroupEffect} from './createGroup'
 
 export const groupWorkEffects = [
   goToGroupWorkEffect,
   createGroupHomeworkEffect,
   initEffect,
+  createGroupEffect,
 ]

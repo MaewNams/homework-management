@@ -130,6 +130,11 @@
           "name": "deleteGroupHomework",
           "flowType": "DeleteGroupHomework",
           "id": "groupWork/DELETE_GROUP_HOMEWORK"
+        },
+        "createGroup": {
+          "name": "createGroup",
+          "flowType": "CreateGroup",
+          "id": "groupWork/CREATE_GROUP"
         }
       },
       "channels": {},
@@ -142,6 +147,9 @@
         },
         "init": {
           "name": "init"
+        },
+        "createGroup": {
+          "name": "createGroup"
         }
       },
       "reducers": {},
