@@ -2,15 +2,15 @@
 import type {Action} from '../../../state/types'
 
 export type DeleteGroupHomeworkPayload = {
-  // TODO: Add payload content
+  homeworkId: string
 }
 
 const id = 'groupWork/DELETE_GROUP_HOMEWORK'
 
-export const deleteGroupHomework = (): Action<DeleteGroupHomeworkPayload> => ({
+export const deleteGroupHomework = (homeworkId: string): Action<DeleteGroupHomeworkPayload> => ({
   type: id,
   payload: {
-    // TODO: Add payload content
+    homeworkId
   }
 })
 
