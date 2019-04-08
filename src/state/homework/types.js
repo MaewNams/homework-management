@@ -6,6 +6,7 @@ export type Homework = {
   detail: string,
   date: string,
   status: string,
+  type: 'individual' | 'group'
 }
 
 export type WorkGroup = {

@@ -13,7 +13,8 @@ export const saveHomeworkToFireStore = async (id: string, subject: string, detai
     subject: subject,
     detail: detail,
     date: date,
-    status: 'ยังไม่เสร็จ'
+    status: 'ยังไม่เสร็จ',
+    type: 'individual'
   }
  db.collection('homeworks').doc(id).set(homework)
 

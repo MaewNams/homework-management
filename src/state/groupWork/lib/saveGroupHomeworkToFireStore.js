@@ -13,7 +13,8 @@ export async function saveGroupHomeworkToFirestore(groupId: string, id: string, 
     subject: subject,
     detail: detail,
     date: date,
-    status: 'ยังไม่เสร็จ'
+    status: 'ยังไม่เสร็จ',
+    type: 'group',
   }
   db.collection('groupHomeworks').doc(id).set(homework)
   const snapshort = await db.collection('groupWorks').doc(groupId).get()
