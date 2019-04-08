@@ -36,7 +36,7 @@ class GroupHomeworkCard extends PureComponent<Props> {
           </header>
           <div className="card-content">
             <div className="content">
-              วิชา: {homework.subject}
+              {homework.subject}
               <br />
               รายละเอียด: {homework.detail}
               <br />
