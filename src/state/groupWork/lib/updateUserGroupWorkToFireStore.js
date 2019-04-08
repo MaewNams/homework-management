@@ -7,9 +7,9 @@ import {
 } from '../../../firebase'
 
 export const updateUserGroupWorkToFirestore = async (groupId: string, user: User): Promise<any> => {
-  const snapshort = await db.collection('userGroupWorks').doc(user.uid).get()
+  const snapshort = await db.collection('userGroupWork').doc(user.uid).get()
   const oldData = snapshort.data()
-  const userGroupWorks = [...oldData.Work, groupId]
-  db.collection('userGroupWorks').doc(user.uid).set({groupWork: userGroupWorks}, {merge: true})
+  const userGroupWorks = [...oldData.groupWork, groupId]
+  db.collection('userGroupWork').doc(user.uid).set({groupWork: userGroupWorks}, {merge: true})
 }
 
