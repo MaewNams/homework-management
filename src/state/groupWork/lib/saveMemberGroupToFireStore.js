@@ -6,13 +6,10 @@ import {
   db,
 } from '../../../firebase'
 
-export const saveMemberGroupToFirestore = async (groupId: string, status: string, user: User): Promise<any> => {
-  const newMember = {
-    [user.uid]: status
-  }
+export const saveMemberGroupToFirestore = async (groupId: string, user: User): Promise<any> => {
  const snapshort = await db.collection('groupWorks').doc(groupId).get()
  const oldData = snapshort.data()
- const members = [...oldData.members, newMember]
+ const members = [...oldData.members, user.email]
  db.collection('groupWorks').doc(groupId).set({members: members}, {merge: true})
 
 }
