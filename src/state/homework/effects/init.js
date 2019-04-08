@@ -1,6 +1,9 @@
 // @flow
 import type {Homework} from '../types'
 import type {
+  GroupWork,
+} from '../../groupWork/types'
+import type {
   User,
 } from '../../session/types'
 import type {Effect} from '../../types'
@@ -18,6 +21,7 @@ import {homeworkActions} from '../actions'
 import {groupWorkActions} from '../../groupWork/actions'
 import {sessionSelectors} from '../../session/selectors'
 import {fetchHomeworkList} from '../lib/fetchHomeworkList'
+import {fetchGroupWorkList} from '../../groupWork/lib/fetchGroupWorkList'
 import {fetchGroupHomeworkList} from '../lib/fetchGroupHomeworkList'
 
 export function* initEffect(): Effect {
@@ -28,8 +32,10 @@ export function* initEffect(): Effect {
       if (user) {
         const homeworkList: ?Homework[] = yield call(fetchHomeworkList, user)
         const groupHomeworkList: ?Homework[] = yield call(fetchGroupHomeworkList, user)
+        const groupWorkList: ?GroupWork[] = yield call(fetchGroupWorkList, user)
         yield put(homeworkActions.setHomeworkList(homeworkList))
         yield put(homeworkActions.setGroupHomeworkList(groupHomeworkList))
+        yield put(groupWorkActions.setGroupWorkList(groupWorkList))
       }
     }
   }
