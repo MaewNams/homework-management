@@ -18,8 +18,7 @@ import styled from 'styled-components'
 import {sessionActions} from '../../state/session/actions'
 import {sessionSelectors} from '../../state/session/selectors'
 import {groupWorkSelectors} from '../../state/groupWork/selectors'
-import {homeworkSelectors} from '../../state/homework/selectors'
-import {homeworkActions} from '../../state/homework/actions'
+import {groupWorkActions} from '../../state/groupWork/actions'
 import {GroupHomeworkList} from './GroupHomeworkList'
 import {GroupMemberPanel} from '../common_component'
 
@@ -151,7 +150,7 @@ const mapStateToProps = (state: ApplicationState, props: Props) => {
 const withStore = connect(mapStateToProps, {
   navigateTo: actions.navigateTo,
   signOut: sessionActions.signOut,
-  deleteHomework: homeworkActions.deleteHomework
+  deleteHomework: groupWorkActions.deleteGroupHomework,
 })
 
 export default withStore(GroupWork)
