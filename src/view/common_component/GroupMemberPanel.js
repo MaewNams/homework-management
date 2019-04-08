@@ -17,13 +17,14 @@ const Span = styled.span`
 `
 type Props = {
   groupWorkList: ?GroupWork[],
+  members: string[],
   goToGroupWork: Function,
 }
 
 class GroupMemberPanel extends PureComponent<Props> {
 
   render() {
-    const {groupWorkList, goToGroupWork} = this.props
+    const {groupWorkList, members, goToGroupWork} = this.props
     return (
       <nav className="panel">
         <div className="panel-block">
@@ -32,14 +33,15 @@ class GroupMemberPanel extends PureComponent<Props> {
           </span>
           สมาชิก
         </div>   
-        <GroupContainer className="panel-block">
-          member01@mail.com
-        </GroupContainer>
-        <GroupContainer className="panel-block">
-          fakemember02@mail.com
-        </GroupContainer>
-  
-
+        {
+          members.map((member, i) => {
+            return (
+              <GroupContainer key={i} className="panel-block">
+                {members}
+              </GroupContainer>
+            )
+          })
+        }
         <div className="panel-block">
           <button className="button is-link is-outlined is-fullwidth">
             เพิ่มสมาชิกกลุ่ม
