@@ -4,6 +4,7 @@ import type {Homework} from '../../state/homework/types'
 import React, { PureComponent } from 'react'
 
 import HomeworkCard from './HomeworkCard'
+import GroupHomeworkCard from './GroupHomeworkCard'
 
 type Props = {
   homeWorkList: Homework[],
@@ -17,9 +18,16 @@ export class HomeworkList extends PureComponent<Props> {
      <div className="">
         { homeWorkList && (
             homeWorkList.map((homework, i) => {
-              return (
-                <HomeworkCard deleteHomework={deleteHomework} key={i} homework={homework} />
-              )
+              const isIndividual = !!(homework.type === 'individual') 
+              if (isIndividual) {
+                return (
+                  <HomeworkCard deleteHomework={deleteHomework} key={i} homework={homework} />
+                )
+              } else {
+                return (
+                  <GroupHomeworkCard key={i} homework={homework} />
+                )
+              }
             })
         )}
      </div>
