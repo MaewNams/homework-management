@@ -136,6 +136,11 @@
           "flowType": "SetGroupWork",
           "id": "groupWork/SET_GROUP_WORK",
           "reducer": true
+        },
+        "deleteGroupHomework": {
+          "name": "deleteGroupHomework",
+          "flowType": "DeleteGroupHomework",
+          "id": "groupWork/DELETE_GROUP_HOMEWORK"
         }
       },
       "channels": {},
@@ -151,6 +156,9 @@
         },
         "createGroup": {
           "name": "createGroup"
+        },
+        "deleteGroupHomework": {
+          "name": "deleteGroupHomework"
         }
       },
       "reducers": {},

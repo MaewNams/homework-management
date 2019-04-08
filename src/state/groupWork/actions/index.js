@@ -9,6 +9,7 @@ import {setGroupHomeworkList} from './setGroupHomeworkList'
 import {createGroupHomework} from './createGroupHomework'
 import {createGroup} from './createGroup'
 import {setGroupWork} from './setGroupWork'
+import {deleteGroupHomework} from './deleteGroupHomework'
 
 export const groupWorkActions = {
   setGroupWorkList,
@@ -17,4 +18,5 @@ export const groupWorkActions = {
   createGroupHomework,
   createGroup,
   setGroupWork,
+  deleteGroupHomework,
 }
