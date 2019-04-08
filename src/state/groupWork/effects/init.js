@@ -16,6 +16,7 @@ import {actionTypes as routerTypes} from 'redux-router5'
 import {groupWorkActions} from '../actions'
 import {fetchGroupHomeworkList} from '../lib/fetchGroupHomeworkList'
 import {fetchGroupWorkList} from '../lib/fetchGroupWorkList'
+import {fetchGroupWork} from '../lib/fetchGroupWork'
 import {sessionSelectors} from '../../session/selectors'
 
 export function* initEffect(): Effect {
@@ -25,10 +26,11 @@ export function* initEffect(): Effect {
       const groupId  = transition.payload.route.params.id
       const groupHomeworkList: Homework[] = yield call(fetchGroupHomeworkList, groupId)
       const user: User = yield select(state => sessionSelectors.getUser(state))
+      const groupWork = yield call(fetchGroupWork, groupId)
       const workGroupList = yield call(fetchGroupWorkList, user)
       yield put(groupWorkActions.setGroupHomeworkList(groupHomeworkList))
       yield put(groupWorkActions.setGroupWorkList(workGroupList))
-
+      yield put(groupWorkActions.setGroupWork(groupWork))
     }
   }
 }
