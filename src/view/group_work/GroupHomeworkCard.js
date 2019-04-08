@@ -16,6 +16,7 @@ const BottomMenu = styled.div`
 `
 type Props = {
   homework: Homework,
+  isOwner: boolean,
   deleteHomework: Function,
 }
 
@@ -29,7 +30,7 @@ class GroupHomeworkCard extends PureComponent<Props> {
   }
 
   render() {
-    const {homework} = this.props
+    const {homework, isOwner} = this.props
     return (
       <CardContainer>
         <div className="card">
@@ -46,10 +47,12 @@ class GroupHomeworkCard extends PureComponent<Props> {
               <br />
             </div>
           </div>
-          <BottomMenu>
-            <a className="button is-primary">Done</a>
-            <a onClick={this.handleDelete} className="button is-danger">Delete</a>
-          </BottomMenu>
+          { isOwner && (
+            <BottomMenu>
+              <a className="button is-primary">Done</a>
+              <a onClick={this.handleDelete} className="button is-danger">Delete</a>
+            </BottomMenu>            
+          )}
         </div>
       </CardContainer>
     )

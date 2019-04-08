@@ -8,17 +8,23 @@ import GroupHomeworkCard from './GroupHomeworkCard'
 type Props = {
   homeWorkList: Homework[],
   deleteHomework: Function,
+  isOwner: boolean,
 }
 
 export class GroupHomeworkList extends PureComponent<Props> {
   render() {
-    const {homeWorkList, deleteHomework} = this.props
+    const {homeWorkList, deleteHomework, isOwner} = this.props
     return (
      <div className="">
         { homeWorkList && (
             homeWorkList.map((homework, i) => {
               return (
-                <GroupHomeworkCard deleteHomework={deleteHomework} key={i} homework={homework} />
+                <GroupHomeworkCard 
+                  key={i} 
+                  deleteHomework={deleteHomework}
+                  homework={homework} 
+                  isOwner={isOwner}
+                />
               )
             })
         )}

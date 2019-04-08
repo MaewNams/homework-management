@@ -72,6 +72,10 @@ export class GroupWork extends PureComponent<Props> {
   render() {
     const {groupHomeworkList, groupWork, groupWorkList, user, deleteHomework, navigateTo} = this.props
     const workLeft = groupHomeworkList ? groupHomeworkList.length : 0
+    let isOwner = false
+    if (user && groupWork) {
+      isOwner = !!(groupWork.owner === user.uid)
+    }
     return (
       <Container className="container is-fluid">
         <div className="media">
@@ -120,7 +124,11 @@ export class GroupWork extends PureComponent<Props> {
             </CreateButton>
             <div className="content">
             { groupHomeworkList && (
-              <GroupHomeworkList deleteHomework={deleteHomework} homeWorkList={groupHomeworkList} />
+              <GroupHomeworkList 
+                deleteHomework={deleteHomework} 
+                homeWorkList={groupHomeworkList} 
+                isOwner={isOwner}
+              />
             )}
             </div>
           </div>
