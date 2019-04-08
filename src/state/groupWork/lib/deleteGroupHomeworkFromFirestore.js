@@ -9,8 +9,7 @@ import {
 export async function deleteGroupHomeworkFromFirestore(groupId: string, removeHomeworkId: string,): Promise<any> {
   const snapshort = await db.collection('groupWorks').doc(groupId).get()
   const oldHomeworks = snapshort.data()
-  const homeworks = oldHomeworks.filter(homeworkId => homeworkId !== removeHomeworkId )
+  const homeworks = oldHomeworks.groupHomeworks.filter(homeworkId => homeworkId !== removeHomeworkId)
   db.collection('groupWorks').doc(groupId).set({groupHomeworks: homeworks}, {merge: true})
-
 }
 
