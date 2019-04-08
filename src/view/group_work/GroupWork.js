@@ -112,7 +112,7 @@ export class GroupWork extends PureComponent<Props> {
               </div>
             </nav>
             <CreateButton>
-              <a className="button is-primary" 
+              <a className="button is-link" 
                 onClick={this.handleGoToCreateHomework}
               >
                 สร้างงานใหม่
