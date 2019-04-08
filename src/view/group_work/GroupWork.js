@@ -42,6 +42,7 @@ type Props = {
   id: string,
   deleteHomework: Function,
   groupHomeworkList: ?Homework[],
+  groupWork: ?GroupWorkType,
   groupWorkList: ?GroupWorkType[],
   navigateTo: Function,
   signOut: Function,
@@ -69,7 +70,7 @@ export class GroupWork extends PureComponent<Props> {
   }
 
   render() {
-    const {groupHomeworkList, groupWorkList, user, deleteHomework} = this.props
+    const {groupHomeworkList, groupWork, groupWorkList, user, deleteHomework, navigateTo} = this.props
     const workLeft = groupHomeworkList ? groupHomeworkList.length : 0
     return (
       <Container className="container is-fluid">
@@ -80,7 +81,14 @@ export class GroupWork extends PureComponent<Props> {
             >
               กลับสู่หน้าหลัก
             </SignOutButton>
-          <GroupMemberPanel groupWorkList={groupWorkList} goToGroupWork={{}} />
+          { groupWork && (
+              <GroupMemberPanel 
+                groupWorkList={groupWorkList} 
+                members={groupWork.members} 
+                goToGroupWork={{}} 
+                navigateTo={navigateTo} 
+                />
+          )}
           </div>
           <div className="media-content">
           <nav className="level">
@@ -126,6 +134,7 @@ export class GroupWork extends PureComponent<Props> {
 const mapStateToProps = (state: ApplicationState, props: Props) => {
   return {
     groupHomeworkList: groupWorkSelectors.getGroupHomeworkList(state),
+    groupWork: groupWorkSelectors.getGroupWork(state),
     groupWorkList: groupWorkSelectors.getGroupWorkList(state),
     user: sessionSelectors.getUser(state),
   }
