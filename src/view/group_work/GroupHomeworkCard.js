@@ -24,9 +24,8 @@ class GroupHomeworkCard extends PureComponent<Props> {
 
   handleDelete = (e:any):void => {
     e.preventDefault()
-    console.log('in handleDelete')
-    // const {deleteHomework, homework} = this.props
-    // deleteHomework(homework.id)
+    const {deleteHomework, homework} = this.props
+    deleteHomework(homework.id)
   }
 
   render() {
